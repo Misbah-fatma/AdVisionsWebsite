@@ -1,0 +1,44 @@
+.themeClass {
+  margin: 0;
+  padding: 0;
+  background: #00022b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #00022b,
+    #030659
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #00022b,
+    #030659
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+
+.course{
+  transition: all 0.5s;
+}
+
+.course:hover{
+  transform: translateY(-10px);
+}
+
+select > option{
+color: #00022b;
+}
+
+
+::-webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #295ab0; /* Color of the thumb (the draggable part) */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the track (the area the thumb moves along) */
+}
+
+ 

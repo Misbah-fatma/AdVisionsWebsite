@@ -1,0 +1,80 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:5000",
+  "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@coreui/react": "^4.11.1",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.15.14",
+    "@mui/material": "^5.15.14",
+    "@reduxjs/toolkit": "^1.8.2",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.2",
+    "@testing-library/user-event": "^14.5.2",
+    "axios": "^1.6.8",
+    "bootstrap": "^5.3.3",
+    "coreui": "^0.4.2-alpha2",
+    "formik": "^2.4.5",
+    "i18next": "^23.10.0",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "i18next-http-backend": "^2.5.0",
+    "lottie-react": "^2.4.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^1.5.2",
+    "react-calendar": "^3.4.0",
+    "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.6.4",
+    "react-hot-toast": "^2.4.1",
+    "react-i18next": "^14.0.5",
+    "react-icons": "^5.0.1",
+    "react-infinite-scroll-component": "^6.1.0",
+    "react-lazyload": "^3.2.0",
+    "react-loading-skeleton": "^3.4.0",
+    "react-pdf": "^7.7.1",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.22.3",
+    "react-scripts": "^5.0.1",
+    "react-toastify": "^7.0.4",
+    "reactjs-popup": "^2.0.6",
+    "redux": "^5.0.1",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.3.0",
+    "simplebar-react": "^3.2.4",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.8",
+    "web-vitals": "^1.1.1",
+    "yup": "^1.4.0"
+  },
+  "scripts": {
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.3.3"
+  }
+}
