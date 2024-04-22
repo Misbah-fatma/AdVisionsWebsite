@@ -1,12 +1,11 @@
 import React from "react";
 import Styles from "./SidebarAdmin.module.css";
 import Sidebar from "../../../../components/Sidebar/Sidebar";
-import LocalLibraryIcon from "@material-ui/icons/LocalLibrary";
-import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import DashboardIcon from "@material-ui/icons/Dashboard";
-import GroupIcon from '@material-ui/icons/Group';
-import PersonIcon from '@material-ui/icons/Person';
+import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import GroupIcon from '@mui/icons-material/Group';
+import PersonIcon from '@mui/icons-material/Person';
 
 const SidebarAdmin = () => {
   return (

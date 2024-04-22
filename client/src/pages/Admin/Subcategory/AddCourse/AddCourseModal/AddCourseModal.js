@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Button, Typography } from "@material-ui/core";
+import { Button, Typography } from "@mui/material";
 import { Modal, Form } from "react-bootstrap";
 import Toast_Comp from "../../../../../components/Toast/Toast_Comp";
 import Spinner_comp from "../../../../../components/Spinner/Spinner_comp";

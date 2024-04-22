@@ -1,32 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
-import { Container, IconButton } from "@material-ui/core";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
+
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { Container, IconButton } from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCourseItem, fetchCourseInfo } from "../../../../../redux/course/courseAction";
 
-const useStyles = makeStyles({
-  table: {
-    //  overflowX : 'hidden'
-  },
-  root: {
-    height: "100%",
-    paddingTop: "30px",
-    paddingRight: "100px",
-    width: "400%",
-  },
-});
+
+
 
 const CourseInfoTable = ({ course }) => {
-  const classes = useStyles();
+
   const dispatch = useDispatch();
   
   // Initialize state variables
@@ -48,9 +39,9 @@ const CourseInfoTable = ({ course }) => {
   };
 
   return (
-    <Container className={classes.root}>
+    <Container >
       <TableContainer component={Paper} style={{ overflowX: "hidden" }}>
-        <Table className={classes.table} aria-label="simple table">
+        <Table aria-label="simple table">
           <TableHead>
             <TableRow className="bg-dark ">
               <TableCell align="center" className="text-light">Id</TableCell>

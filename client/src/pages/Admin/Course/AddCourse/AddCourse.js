@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Styles from "./AddCourse.module.css";
-import { Button, IconButton, Paper, Typography } from "@material-ui/core";
-import ImportContactsIcon from "@material-ui/icons/ImportContacts";
-import NoteAddIcon from "@material-ui/icons/NoteAdd";
+import { Button, IconButton, Paper, Typography } from "@mui/material";
+import ImportContactsIcon from "@mui/icons-material/ImportContacts";
+import NoteAddIcon from "@mui/icons-material/NoteAdd";
 import AddCourseModal from "./AddCourseModal/AddCourseModal";
 import axios from "axios";
 

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link, NavLink, useNavigate  } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
-import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
-import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
-import ChatIcon from "@material-ui/icons/Chat";
-import SettingsIcon from "@material-ui/icons/Settings";
-import { Avatar, Button, IconButton } from "@material-ui/core";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+import ChatIcon from "@mui/icons-material/Chat";
+import SettingsIcon from "@mui/icons-material/Settings";
+import { Avatar, Button, IconButton } from "@mui/material";
 import "./Header.css";
-import ClearIcon from "@material-ui/icons/Clear";
-import NotesIcon from "@material-ui/icons/Notes";
+import ClearIcon from "@mui/icons-material/Clear";
+import NotesIcon from "@mui/icons-material/Notes";
 import { useDispatch } from "react-redux";
 import { useTranslation } from 'react-i18next';
 

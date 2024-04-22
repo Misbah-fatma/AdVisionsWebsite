@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Container } from 'react-bootstrap'
-import { Paper, Typography } from '@material-ui/core'
+import { Paper, Typography } from '@mui/material'
 
 const TeacherDashboard = () => {
     return (

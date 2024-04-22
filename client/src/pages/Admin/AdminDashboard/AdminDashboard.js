@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SidebarAdmin from "./SidebarAdmin/SidebarAdmin";
 import Styles from "./AdminDashboard.module.css";
-import { Paper, Typography } from "@material-ui/core";
+import { Paper, Typography } from "@mui/material";
 import MainSidebar from "./MainSidebar/MainSidebar";
 
 const AdminDashboard = () => {

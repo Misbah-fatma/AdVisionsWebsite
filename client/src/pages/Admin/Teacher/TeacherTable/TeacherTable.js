@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
+
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 import {
   Box,
   Card,
@@ -14,25 +14,17 @@ import {
   IconButton,
   TableFooter,
   TablePagination,
-} from "@material-ui/core";
+} from "@mui/material";
 import axios from "axios";
-import TablePaginationActions from "@material-ui/core/TablePagination/TablePaginationActions";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
+import TablePaginationActions from "@mui/material/TablePagination/TablePaginationActions";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-  root: {
-    height: "100%",
-    paddingTop: "30px",
-  },
-});
+
 const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL})
 
 const TeacherTable = () => {
-  const classes = useStyles();
+
 
   const [data, setData] = useState([]);
 
@@ -71,9 +63,9 @@ const TeacherTable = () => {
     setPage(0);
   };
   return (
-    <Container className={classes.root}>
+    <Container >
       <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
+        <Table  aria-label="simple table">
           <TableHead>
             <TableRow className="bg-dark ">
               <TableCell align="center" className="text-light">

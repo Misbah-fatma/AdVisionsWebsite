@@ -1,4 +1,4 @@
-import { Button, Divider } from '@material-ui/core';
+import { Button, Divider } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Styles from './CourseCard.module.css'

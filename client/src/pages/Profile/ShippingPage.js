@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 // import Grid from '@mui/material/Grid';
-import {Typography} from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import { Box, Button, Collapse, styled } from '@material-ui/core';
+import {Typography} from '@mui/material';
+import TextField from '@mui/material/TextField';
+import { Box, Button, Collapse, styled } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import Grid from '@mui/material/Grid';
 // import { updateCustomer } from '../../../redux/userHandle';
-// import { KeyboardArrowDown, KeyboardArrowUp } from '@material-ui/core';
+// import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/material';
 // import { BlueButton, GreenButton } from '../../../utils/buttonStyles';
 import { useNavigate  } from 'react-router-dom';
 

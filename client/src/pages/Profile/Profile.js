@@ -1,4 +1,4 @@
-import { Avatar, Paper, Typography } from "@material-ui/core";
+import { Avatar, Paper, Typography } from "@mui/material";
 import React from "react";
 import { useState, useEffect } from 'react';
 import CommonHeader from "../../components/Common/CommonHeader";
@@ -7,7 +7,7 @@ import ToggleProfileInfo from "./ToggleProfileInfo/ToggleProfileInfo";
 import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import Navbar1 from "../LandingPage/Navbar";
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 import { Modal, Form } from "react-bootstrap";
 import Toast_Comp from "../../components/Toast/Toast_Comp";
 

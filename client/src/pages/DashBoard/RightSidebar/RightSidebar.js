@@ -1,8 +1,8 @@
 import React from "react";
 import SideCalender from "../../../components/Calender/SideCalender";
 import UpcomingEvents from "./UpcommingEvents/UpcomingEvents";
-import PersonIcon from "@material-ui/icons/Person";
-import { Typography } from "@material-ui/core";
+import PersonIcon from "@mui/icons-material/Person";
+import { Typography } from "@mui/material";
 
 const RightSidebar = () => {
   return (

@@ -1,4 +1,4 @@
-import { Paper } from "@material-ui/core";
+import { Paper } from "@mui/material";
 import React from "react";
 import SidebarAdmin from "../SidebarAdmin/SidebarAdmin";
 import Styles from "./MainSidebar.module.css";

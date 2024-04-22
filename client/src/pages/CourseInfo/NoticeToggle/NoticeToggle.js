@@ -1,36 +1,25 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import NoticeToggleRow from './NoticeToggleRow/NoticeToggleRow';
-import NoteAddIcon from '@material-ui/icons/NoteAdd';
+import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import  toggleTitle  from '../ToggleData/ToggleData';
-import { Divider } from '@material-ui/core';
-import InsertCommentIcon from '@material-ui/icons/InsertComment';
-import MovieFilterIcon from '@material-ui/icons/MovieFilter';
-import ExtensionIcon from '@material-ui/icons/Extension';
+import { Divider } from '@mui/material';
+import InsertCommentIcon from '@mui/icons-material/InsertComment';
+import MovieFilterIcon from '@mui/icons-material/MovieFilter';
+import ExtensionIcon from '@mui/icons-material/Extension';
 import Navbar from '../../LandingPage/Navbar';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    margin:"10px 0px",
-    
 
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
-}));
 
 
 
 const NoticeToggle = ({exp}) => {
-    const classes = useStyles();
+ 
   
     return (
         <div>
@@ -40,7 +29,7 @@ const NoticeToggle = ({exp}) => {
             toggleTitle.map(({id,title})=>{
               return(
                 
-                <div key={id} className={classes.root}>
+                <div key={id}>
                  
                   <div className='container'>
                    
@@ -50,7 +39,7 @@ const NoticeToggle = ({exp}) => {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography className={classes.heading}>{title}</Typography>
+                    <Typography >{title}</Typography>
                   </AccordionSummary>
                   <Typography className='mx-3 my-2' variant="h6">{title}</Typography>
                   <Typography className='mx-5 my-2' variant="h6">Lesson Materials</Typography>

@@ -1,4 +1,4 @@
-import { Avatar, Paper, Typography } from "@material-ui/core";
+import { Avatar, Paper, Typography } from "@mui/material";
 import React from "react";
 import CommonHeader from "../../components/Common/CommonHeader";
 import Styles from "./Profile.module.css";

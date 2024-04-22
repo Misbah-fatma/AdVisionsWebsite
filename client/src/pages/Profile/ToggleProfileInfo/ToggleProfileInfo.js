@@ -1,27 +1,18 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { Divider } from "@material-ui/core";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormControl from "@material-ui/core/FormControl";
+
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Divider } from "@mui/material";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-    margin: "10px 0px",
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
-}));
+
 
 const ToggleProfileInfo = ({ title, value1, value2, link, exp }) => {
   const [value, setValue] = React.useState(value1);
@@ -36,7 +27,6 @@ const ToggleProfileInfo = ({ title, value1, value2, link, exp }) => {
 
   
 
-  const classes = useStyles();
   return (
     <div className="my-3">
       <Accordion
@@ -49,7 +39,7 @@ const ToggleProfileInfo = ({ title, value1, value2, link, exp }) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>{title}</Typography>
+          <Typography >{title}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <FormControl component="fieldset">
