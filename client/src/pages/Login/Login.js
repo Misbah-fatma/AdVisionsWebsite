@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../LandingPage/Footer";
 import Navbar from "../LandingPage/Navbar";
+import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,45 +20,38 @@ const Login = () => {
   const history = useNavigate();
   const {user} = useSelector((state) => state.auth);
   //console.log(user);
+  const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL})
 
   const dispatch = useDispatch();
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
     setLoading(true);
-    fetch("/auth/login", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
+    axiosInstance.post("/auth/login", {
+      email,
+      password,
     })
-      .then((res) => res.json())
-      .then((result) => {
-        setLoading(false);
-        // console.log(result);
-        if (result.errors) {
-          setError(result.errors);
-        } else {
-          
-          setToast(true);
-          setError(null);
-             setTimeout(() => {
-              dispatch({ type: "SET__USER", payload: result.userInfo });
-              localStorage.setItem("auth_token", result.token);
-              localStorage.setItem("user", JSON.stringify(result.userInfo));
-             }, 3000);
-             clearTimeout();
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    .then((response) => {
+      setLoading(false);
+      const result = response.data;
+      // console.log(result);
+      if (result.errors) {
+        setError(result.errors);
+      } else {
+        setToast(true);
+        setError(null);
+        setTimeout(() => {
+          dispatch({ type: "SET__USER", payload: result.userInfo });
+          localStorage.setItem("auth_token", result.token);
+          localStorage.setItem("user", JSON.stringify(result.userInfo));
+        }, 3000);
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
-
+  
   useEffect(() => {
     if(user && user.role=="Student")
     {

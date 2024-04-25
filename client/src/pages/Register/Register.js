@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Navbar from "../LandingPage/Navbar";
 import Footer from "../LandingPage/Footer";
+import axios from 'axios';
 
 const Register = () => {
   const [userName, setUserName] = useState("");
@@ -18,44 +19,40 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState(false);
   const history = useNavigate();
+  const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL})
 
   const {user} = useSelector((state) => state.auth);
+
+
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
     setLoading(true);
-    fetch("/auth/register", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userName,
-        email,
-        password,
-        confirmPassword,
-      }),
+    axiosInstance.post("/auth/register", {
+      userName,
+      email,
+      password,
+      confirmPassword,
     })
-      .then((res) => res.json())
-      .then((result) => {
-        setLoading(false);
-        console.log(result);
-        if (result.errors) {
-          setError(result.errors);
-        } else {
-          setToast(true);
-          setError(null);
-          setTimeout(() => {
-            history("/login");
-          }, 3000);
-          clearTimeout();
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
+    .then((response) => {
+      setLoading(false);
+      const result = response.data;
+      console.log(result);
+      if (result.errors) {
+        setError(result.errors);
+      } else {
+        setToast(true);
+        setError(null);
+        setTimeout(() => {
+          history.push("/login");
+        }, 3000);
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  };
+  
   useEffect(() => {
     if(user && user.role=="Student")
     {
