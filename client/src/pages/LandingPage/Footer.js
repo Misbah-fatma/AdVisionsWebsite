@@ -57,7 +57,7 @@ export default function Footer() {
                 <i className="fa fa-phone-alt me-3"></i>+91 7078054645
               </p>
               <p>
-                <i className="fa fa-envelope me-3"></i>officials@advisions-ard.com
+                <i className="fa fa-envelope me-3"></i>info@advisionslab.com
 
               </p>
               <div className="d-flex pt-2">
@@ -67,7 +67,7 @@ export default function Footer() {
                 {/* <a className="btn btn-outline-light btn-social" href="*">
                   <i className="fab fa-facebook-f"></i>
                 </a> */}
-                <a className="btn btn-outline-light btn-social" href="mailto:advisions.ard@gmail.com" target="_blank" rel="noreferrer">
+                <a className="btn btn-outline-light btn-social" href="mailto:info@advisionslab.com" target="_blank" rel="noreferrer">
                   <i className="fab fa-google"></i>
                 </a>
                 <a className="btn btn-outline-light btn-social" href="https://www.youtube.com/@navudayeducationalhub">
@@ -95,25 +95,25 @@ export default function Footer() {
               <a className="btn btn-link" href="*">
                 Terms & Condition
               </a>
-              <a className="btn btn-link" href="*">
+              {/* <a className="btn btn-link" href="*">
                 Career
-              </a>
+              </a> */}
             </div>
             <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
               <h5 className="text-white mb-4">Our Services</h5>
-              <a className="btn btn-link" href="*">
+              <a className="btn btn-link" >
                 Robotic Automation
               </a>
-              <a className="btn btn-link" href="*">
+              <a className="btn btn-link" >
                 Machine learning
               </a>
-              <a className="btn btn-link" href="*">
+              <a className="btn btn-link" >
                 Predictive Analysis
               </a>
-              <a className="btn btn-link" href="*">
+              <a className="btn btn-link" >
                 Data Science
               </a>
-              <a className="btn btn-link" href="*">
+              <a className="btn btn-link" >
                 Robot Technology
               </a>
             </div>
@@ -132,9 +132,9 @@ export default function Footer() {
               <div className="col-md-3 text-center text-md-end">
                 <div className="footer-menu">
                   <a href="/">Home</a>
-                  <a href="*">Cookies</a>
+                  <a >Cookies</a>
                   <a href="/contact">Help</a>
-                  <a href="*">FAQs</a>
+                  <a >FAQs</a>
                 </div>
               </div>
             </div>

@@ -1,147 +1,121 @@
+import { faFacebook, faDribbble, faInstagram, faLinkedin, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Avatar, Paper, Typography } from "@mui/material";
-import React from "react";
-import CommonHeader from "../../components/Common/CommonHeader";
-import Styles from "./Profile.module.css";
-import ToggleProfileInfo from "./ToggleProfileInfo/ToggleProfileInfo";
+import React, { useState, useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import Navbar from "./Navbar";
 
 const Profile = () => {
-  const { user } = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.auth);
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const userDataFromStorage = localStorage.getItem('user');
+    if (userDataFromStorage) {
+      setUserData(JSON.parse(userDataFromStorage));
+    }
+  }, []);
+
   return (
     <div>
-      <CommonHeader title={user && user.userName && user.userName} />
-      <div className={Styles.avatar}>
-        <Avatar className={Styles.avatar__profile__pic} />
-      </div>
-      <Container fluid className="mb-5">
+      <Navbar />
+      <br /> <br /> <br /> <br /> <br /> <br />
+      <Container>
         <Row>
-          <Col md={8}>
-            <Paper className="p-5 m-3 shadow">
-              <Typography
-                className="text-center text-primary pb-4"
-                variant="h5"
-              >
-                Your Profile Information
-              </Typography>
-              <ToggleProfileInfo
-                exp={true}
-                link="edit-profile"
-                title="User details"
-                value1="Edit profile"
-                value2="Email address"
-              />
-
-              <ToggleProfileInfo
-                link="privacy-policies"
-                title="Privacy and policies"
-                value1="Data retention summary"
-              />
-
-              <ToggleProfileInfo
-                link="course-details"
-                title="Course details"
-                value1="Course details"
-              />
-
-              <ToggleProfileInfo
-                link="learning-plans"
-                title="Miscellaneous"
-                value1="Blog entries"
-                value2="Learning plans"
-              />
-              <ToggleProfileInfo
-                link="grades"
-                title="Reports"
-                value1="Browser sessions"
-                value2="Grades overview"
-              />
-              <ToggleProfileInfo
-                title="Mobile app"
-                value1="This site has mobile app access enabled.
-            Download the mobile app."
-              />
-            </Paper>
+          <Col>
+            {userData ? (
+              <div className="container">
+                <div className="row d-flex justify-content-center">
+                  <div className="col">
+                    <div className="card p-3 py-4">
+                      <div className="text-center">
+                        <img
+                          src="https://i.imgur.com/bDLhJiP.jpg"
+                          width="100"
+                          className="rounded-circle"
+                        />
+                      </div>
+                      <div className="text-center mt-3">
+                        <span className="bg-primary p-1 px-4 rounded text-white ">{userData.role}</span>
+                        <h5 className="mt-2 mb-0"> {userData.userName}</h5>
+                        <span> {userData.email}</span>
+                        <div className="px-4 mt-1">
+                          <p className="fonts">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                        </div>
+                        <div className="social-icons d-flex justify-content-center mb-4">
+                          <FontAwesomeIcon icon={faFacebook} className="me-3"/>
+                          <FontAwesomeIcon icon={faDribbble} className="me-3"/>
+                          <FontAwesomeIcon icon={faInstagram} className="me-3" />
+                          <FontAwesomeIcon icon={faLinkedin} className="me-3"/>
+                          <FontAwesomeIcon icon={faGoogle} className="me-3"/>
+                        </div>
+                   
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <h1>jhj</h1>
+            )}
           </Col>
-          <Col md={4} className="">
-            <Paper className="p-4 m-3 d-flex flex-column shadow">
-              <Typography className="my-3 text-primary" variant="h5">
-                Profile
-              </Typography>
-              <Typography
-                className="my-2"
-                style={{ color: "gray" }}
-                variant="body2"
-              >
-                Username
-              </Typography>
-              <Typography variant="body1">
-                {user && user.userName && user.userName}
-              </Typography>
-              <br />
-              <Typography
-                className="my-2"
-                style={{ color: "gray" }}
-                variant="body2"
-              >
-                Preferred language
-              </Typography>
-              <Typography variant="body1">English</Typography>
-              <br />
-              <Typography
-                className="my-2"
-                style={{ color: "gray" }}
-                variant="body2"
-              >
-                First access to site
-              </Typography>
-              <Typography variant="body1">
-                Sunday, 14 February 2021, 8:44 AM
-              </Typography>
-              <br />
-              <Typography
-                className="my-2"
-                style={{ color: "gray" }}
-                variant="body2"
-              >
-                Last access to site
-              </Typography>
-              <Typography variant="body1">
-                Wednesday, 5 May 2021, 2:44 PM
-              </Typography>
-              <br />
-              <Typography
-                className="my-2"
-                style={{ color: "gray" }}
-                variant="body2"
-              >
-                Email address
-              </Typography>
-              <Typography variant="body1">
-                {user && user.userName && user.email}
-              </Typography>
-            </Paper>
-
-            {
-                user && user.role==="Student" &&  <Paper className="shadow p-4 d-flex flex-column m-3">
+          {userData ? (
+            <Col md={4} className="">
+              <Paper className="p-4 m-3 d-flex flex-column shadow">
                 <Typography className="my-3 text-primary" variant="h5">
-                  Recent activity
+                  Edit Profile
                 </Typography>
-  
                 <Typography
                   className="my-2"
                   style={{ color: "gray" }}
                   variant="body2"
                 >
-                  Courses I'm taking
+                  Username
                 </Typography>
-                <Typography variant="body1">9</Typography>
+                <Typography variant="body1">
+                  {userData.userName}
+                </Typography>
+                <br />
+                <Typography
+                  className="my-2"
+                  style={{ color: "gray" }}
+                  variant="body2"
+                >
+                  Edit Password
+                </Typography>
+                <Typography variant="body1"></Typography>
+                <br />
+                <Typography
+                  className="my-2"
+                  style={{ color: "gray" }}
+                  variant="body2"
+                >
+                  Email address
+                </Typography>
+                <Typography variant="body1">
+                  {userData.email}
+                </Typography>
               </Paper>
-                
-              }
-
-           
-          </Col>
+              {user && user.role === "Student" && (
+                <Paper className="shadow p-4 d-flex flex-column m-3">
+                  <Typography className="my-3 text-primary" variant="h5">
+                    Recent activity
+                  </Typography>
+                  <Typography
+                    className="my-2"
+                    style={{ color: "gray" }}
+                    variant="body2"
+                  >
+                    Courses I'm taking
+                  </Typography>
+                  <Typography variant="body1">9</Typography>
+                </Paper>
+              )}
+            </Col>
+          ) : (
+            <h1>jhj</h1>
+          )}
         </Row>
       </Container>
     </div>

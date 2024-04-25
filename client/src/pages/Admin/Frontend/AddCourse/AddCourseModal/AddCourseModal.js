@@ -28,7 +28,7 @@ function App() {
     formData.append('description', description);
     formData.append('img', file);
 
-    axiosInstance.post('http://localhost:5000/post-front', formData, {
+    axiosInstance.post('/post-front', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }

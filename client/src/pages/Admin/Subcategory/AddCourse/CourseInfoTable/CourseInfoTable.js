@@ -31,7 +31,7 @@ const CourseInfoTable = ({ course }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosInstance.get('/api/items');
+        const response = await axiosInstance.get('/items');
         setItems(response.data);
       } catch (error) {
         console.error('Failed to fetch items: ' + error.message);

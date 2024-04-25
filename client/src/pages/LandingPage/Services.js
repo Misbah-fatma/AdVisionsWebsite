@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import "../../App.css"
 
 export default function Services() {
   return (
@@ -19,9 +20,9 @@ export default function Services() {
                         </ol>
                     </nav>
                 </div>
-                {/* <div className="col-lg-6 align-self-end text-center text-lg-end">
+                <div className="col-lg-6 align-self-end text-center text-lg-end">
                     <img className="img-fluid" src="assets/img/hero-img.png" alt="*" style={{maxHeight: "300px"}}/>
-                </div> */}
+                </div>
             </div>
         </div>
     </div>
@@ -57,7 +58,7 @@ export default function Services() {
                             <div className="btn btn-sm border rounded-pill text-primary px-3 mb-3">Our Services</div>
                             <h1 className="mb-4">Our Innovative Solutions for Your Business</h1>
                             <p className="mb-4">Elevate your business with personalized solutions crafted to precisely align with your requirements, maximizing your potential for success.</p>
-                            <a className="btn btn-primary rounded-pill px-4" href="*">Read More</a>
+                          
                         </div>
                         <div className="col-lg-7">
                             <div className="row g-4">
@@ -70,7 +71,7 @@ export default function Services() {
                                                 </div>
                                                 <h5 className="mb-3">Advanced Generative AI Development</h5>
                                                 <p>Train your dataset to generate original outputs such as images, text, or music using state-of-the-art generative AI techniques.</p>
-                                                <a className="btn px-3 mt-auto mx-auto" href="*">Read More</a>
+                                          
                                             </div>
                                         </div>
                                         <div className="col-12 wow fadeIn" data-wow-delay="0.5s">
@@ -80,7 +81,7 @@ export default function Services() {
                                                 </div>
                                                 <h5 className="mb-3">Corporate Trainings</h5>
                                                 <p>Boost team expertise with customized Corporate Training Solutions for colleges and startups. Enhance learning, drive innovation, and thrive in today's competitive industry.</p>
-                                                <a className="btn px-3 mt-auto mx-auto" href="*">Read More</a>
+                                             
                                             </div>
                                         </div>
                                     </div>
@@ -94,7 +95,7 @@ export default function Services() {
                                                 </div>
                                                 <h5 className="mb-3">Custom Web Application Development</h5>
                                                 <p>Leverage our tailor-made services to address your specific industry needs, cater to your target audience, and enhance operational efficiency.</p>
-                                                <a className="btn px-3 mt-auto mx-auto" href="*">Read More</a>
+                                         
                                             </div>
                                         </div>
                                         <div className="col-12 wow fadeIn" data-wow-delay="0.7s">
@@ -104,12 +105,57 @@ export default function Services() {
                                                 </div>
                                                 <h5 className="mb-3">STEM Programs & ATL Lab Setup</h5>
                                                 <p>Transform education with Revolutionizing Education, featuring STEM Programs and AI-Robotics Labs, empowering students for future tech challenges.</p>
-                                                <a className="btn px-3 mt-auto mx-auto" href="*">Read More</a>
+                                             
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                               
+                                <div className="col-md-6 pt-md-4">
+                                    <div className="row g-4">
+                                        <div className="col-12 wow fadeIn" data-wow-delay="0.3s">
+                                            <div className="service-item d-flex flex-column justify-content-center text-center rounded">
+                                                <div className="service-icon btn-square">
+                                                    <i className="fa fa-code fa-2x"></i>
+                                                </div>
+                                                <h5 className="mb-3">Corporate Advice</h5>
+                                                <p>
+                                                We will provides expert consultancy services to businesses, offering 
+                                                strategic guidance on various aspects such as finance, management, operations, 
+                                                and organizational development to optimize performance and achieve long-term success.
+                                                     </p>
+                                              <span className="price-tag" >15$ for Web Development</span>
+                                              <span className="price-tag">25$ for Consultancy</span>
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                </div>
+                                <div className="col-md-6 pt-md-4">
+                                    <div className="row g-4">
+                                        <div className="col-12 wow fadeIn" data-wow-delay="0.3s">
+                                            <div className="service-item d-flex flex-column justify-content-center text-center rounded">
+                                                <div className="service-icon btn-square">
+                                                    <i className="fa fa-code fa-2x"></i>
+                                                </div>
+                                                <h5 className="mb-3">AI & Robotics Training</h5>
+                                                <p>
+                                                AI & Robotics Training offers comprehensive courses in artificial intelligence 
+                                                and robotics, providing hands-on experience in programming, machine learning, 
+                                                and autonomous system development. From beginners to professionals, our programs 
+                                                are designed to equip individuals with the skills needed to excel in these rapidly 
+                                                evolving fields.
+                                                </p>
+                                             
+                                            </div>
+                                        </div>
+                                
+                                    </div>
+                                </div>
+                         
+                                
                             </div>
+                            
                         </div>
                     </div>
                 </div>

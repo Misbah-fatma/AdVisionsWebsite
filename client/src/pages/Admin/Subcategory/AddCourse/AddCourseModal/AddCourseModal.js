@@ -24,7 +24,7 @@ const AddItemForm = () => {
     e.preventDefault();
     const newItem = { name, status, subcategories };
     try {
-      await axiosInstance.post('/api/items', newItem);
+      await axiosInstance.post('/items', newItem);
       alert('Item Added!');
     } catch (error) {
       alert('Failed to add item: ' + error.message);

@@ -1,30 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import News from './News';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-    var [frontends, setFrontends] = useState([])
+
+    const [items, setItems] = useState([]);
+    const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL})
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axiosInstance.get('/');
+          setItems(response.data);
+        } catch (error) {
+          console.error('Failed to fetch items: ' + error.message);
+        }
+      };
+  
+      fetchData();
+    }, []);
     return (
         <>
         <Navbar/>
-   {
-                frontends.map((item, index) => {
-                    console.log(item.des);
-                    return <div key={index} className="container-fluid pt-5 bg-primary hero-header  mb-5" style={{ background: `url(/assets/img/${item.pic})`, backgroundSize: "cover" }}>
+        {items.map((items) => {
+              
+                    return <div key={items._id} className="container-fluid pt-5 bg-primary hero-header" style={{ background: `url(/assets/img/AI.jpg)`, backgroundSize: "cover" }}>
                         <div className="container pt-5">
                             <div className="row g-5 pt-5">
                                 <div className="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
                                     <div className="btn btn-sm border rounded-pill text-white px-3 mb-3 animated slideInRight">AI.Tech</div>
-                                    <h1 className="display-4 text-white mb-4 animated slideInRight">{item.des}</h1>
+                                    <h1 className="display-4 text-white mb-4 animated slideInRight">{items.description}</h1>
                                     <p className="text-white mb-4 animated slideInRight">Enhance Your Vision, Transform Your Life</p>
                                     {/* <a href="*" className="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInRight">Read More</a> */}
-                                    <a href="*" className="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a>
+                                  <Link to = "/Contact"> <a  className="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a></Link> 
                                 </div>
                                 <div className="col-lg-6 align-self-end text-center text-lg-end">
-                                    <img className="img-fluid" src="assets/img/hero-img.png" alt="*" />
+                                    <img className="img-fluid" src={items.pic} alt="*" />
                                 </div>
                             </div>
                         </div>
@@ -50,66 +65,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            {/* <!-- Full Screen Search End --> */}
 
-
-            {/* <!-- About Start --> */}
-            <div className="container-fluid py-5">
-                <div className="container">
-                    <div className="row g-5 align-items-center">
-                        <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                            <div className="about-img">
-                                <img className="img-fluid" src="assets/img/about-img.jpg" alt='*' />
-                            </div>
-                        </div>
-                        <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                            <div className="btn btn-sm border rounded-pill text-primary px-3 mb-3">About Us</div>
-                            <h1 className="mb-4">Leading tech firm pioneering innovative solutions in diverse domains.</h1>
-                            <p className="mb-4">At Advisions R&D, we are a leading tech and research company dedicated to providing innovative services and solutions in various domains.</p>
-                            <p className="mb-4">We specialize in.</p>
-                            <div className="row g-3">
-                                <div className="col-sm-6">
-                                    <ul>
-                                        <li>Generative AI Development</li>
-                                        <li>Tailored ChatGPT Development & Integration</li>
-                                        <li>Advanced Large Language Models (LLMs) Development</li>
-                                        <li>Custom Web Application Development</li>
-                                        <li>Innovative Mobile App Development</li>
-                                    </ul>
-                                </div>
-                                <div className="col-sm-6">
-                                    <ul>
-                                        <li>Secure Enterprise Software Development</li>
-                                        <li>MVP Development & Strategic Consulting</li>
-                                        <li>School Management Software</li>
-                                        <li>STEM Programs & ATL Lab Setup</li>
-                                        <li>Corporate Trainings</li>
-                                        <li>Robotics Process Automation</li>
-                                        <li>Digital Twins</li>
-                                    </ul>
-                                </div>
-                                <div className="col-sm-6">
-                                    <h6 className="mb-3"><i className="fa fa-check text-primary me-2"></i>Data Security</h6>
-                                    <h6 className="mb-0"><i className="fa fa-check text-primary me-2"></i>Professional Developers</h6>
-                                </div>
-                                <div className="col-sm-6">
-                                    <h6 className="mb-3"><i className="fa fa-check text-primary me-2"></i>24/7 Support</h6>
-                                    <h6 className="mb-0"><i className="fa fa-check text-primary me-2"></i>Fair Prices</h6>
-                                </div>
-                            </div>
-                            <div className="d-flex align-items-center mt-4">
-                                {/* <a className="btn btn-primary rounded-pill px-4 me-3" href="*">Read More</a> */}
-                                <a className="btn btn-outline-primary btn-square me-3" href="mailto:advisions.ard@gmail.com" target="_blank" rel="noreferrer">
-                                    <i className="fab fa-google"></i></a>
-                                <a className="btn btn-outline-primary btn-square me-3" href="*"><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-outline-primary btn-square me-3" href="*"><i className="fab fa-instagram"></i></a>
-                                <a className="btn btn-outline-primary btn-square" href="*"><i className="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* <!-- About End --> */}
 
 
             {/* <!-- Feature Start --> */}

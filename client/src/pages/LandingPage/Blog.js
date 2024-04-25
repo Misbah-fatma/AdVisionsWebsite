@@ -288,6 +288,6 @@ export default function Courses() {
             </div> */}
             <Newsletter/>
             <Footer/>
-            {/* <!-- Newsletter End --> */}</>
+        </>
   )
 }

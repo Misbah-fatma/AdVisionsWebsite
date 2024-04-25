@@ -18,3 +18,13 @@
     color: #fff; /* Adjust the text color as needed */
     text-shadow: 0 0 10px rgb(104, 227, 229), 0 0 20px rgb(97, 173, 236), 0 0 30px rgb(71, 180, 224);
   }
+
+  .price-tag {
+    display: block;
+    font-size: 16px;
+    color: #3c3e40;
+    margin-top: 10px;
+    font-weight: 500;
+    background-color: aliceblue;
+  }
+  

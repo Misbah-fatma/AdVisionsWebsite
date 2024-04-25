@@ -13,10 +13,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios"
 
 
-
-
 const CourseInfoTable = ({ course }) => {
-
 
   const [items, setItems] = useState([]);
   const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL})

@@ -11,8 +11,6 @@ import DashBoard from "./pages/DashBoard/Dashboard.js";
 import Settings from "./pages/Settings/Settings.js";
 import Messages from "./pages/Messages/Messages.js";
 import Grades from "./pages/Grades/Grades.js";
-import Profile from "./pages/Profile/Profile.js";
-import Header from "./components/Header/Header.js";
 import CourseInfo from "./pages/CourseInfo/CourseInfo.js";
 import Login from "./pages/Login/Login.js";
 import Register from "./pages/Register/Register.js";
@@ -42,11 +40,11 @@ import CourseInfoTable from "./pages/Admin/Course/AddCourse/CourseInfoTable/Cour
 import AddtoCart from "./pages/AddToCart/AddtoCart.js"
 import NoticeToggle from "./pages/CourseInfo/NoticeToggle/NoticeToggle.js";
 import CheckOut from "./pages/AddToCart/Checkout.js"
-import Profile2 from "./pages/ProfilePage/profile.js";
-// import CourseInfo1 from "./pages/LandingPage/CourseInfo.js";
 import AdminFrontend from "./pages/Admin/Frontend/AdminFrontend.js"
 import AdminCategory from "./pages/Admin/Subcategory/AdminFrontend.js"
 import New1 from "./pages/LandingPage/New.js"
+import { Products } from "./pages/LandingPage/Products.js";
+import Profile from "./pages/LandingPage/Profile.js";
 
 const Routing = () => {
 
@@ -74,18 +72,13 @@ const Routing = () => {
       <Route exact path="/CourseInfoTable"  element={<CourseInfoTable />}>
      
       </Route>
-      <Route exact path="/profile"  element={<Profile />}>
-      
-      </Route>
       <Route exact path="/training"  element={<Training />}>
       
       </Route>
       <Route exact path="/courses"  element={<Courses />}>
   
       </Route>
-      <Route exact path="/profile2"  element={<Profile2 />}>
-      
-      </Route>
+
       <Route exact path="/settings" element={<Settings />}>
      
       </Route>
@@ -101,6 +94,9 @@ const Routing = () => {
       <Route exact path="/cart"  element={<AddtoCart />}>
         
           </Route>
+          <Route exact path="/product"  element={<Products />}>
+        
+        </Route>
           <Route exact path="/NoticeToggle"  element={<NoticeToggle />}>
      
       </Route>
@@ -124,9 +120,10 @@ const Routing = () => {
       <Route exact path="/team"  element={<Team />}>
      
         </Route>
-        <Route exact path="/product" element={<Courses1 />}> 
-       
-          </Route> 
+        <Route exact path="/profile"  element={<Profile />}>
+     
+        </Route>
+
         <Route exact path="/About"element={<About />} ></Route>
         <Route exact path="/Services" element={<Services />}>  </Route>
         <Route exact path="/News" element={<News />}></Route>

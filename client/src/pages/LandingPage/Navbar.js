@@ -90,21 +90,12 @@ const handleLogout = () => {
                     <Link to="/product" className="dropdown-item">
                       Products
                     </Link>
-                    <Link to="/new" className="dropdown-item">
-                      New
-                    </Link>
-                    {/* <Link to="/features" className="dropdown-item">
-                      Features
-                    </Link> */}
+
+        
                     <Link to="/team" className="dropdown-item">
                       Our Team
                     </Link>
-                    {/* <Link to="/faq" className="dropdown-item">
-                      FAQs
-                    </Link> */}
-                    {/* <Link to="/testimonial" className="dropdown-item">
-                      Testimonial
-                    </Link> */}
+
                   </div>
                 </div>
                 {/* <Link to="/admin" className="nav-item nav-link">Admin</Link> */}
@@ -118,7 +109,7 @@ const handleLogout = () => {
                     <div className="nav-item dropdown">
                       <a href="/" className="nav-link dropdown-toggle text-dark" data-toggle="dropdown">{userData.userName} <i className="fa fa-user-cirle-o mt-1" aria-hidden="true"></i></a>
                       <div className="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                        <Link to="/profile2" className="dropdown-item">Profile</Link>
+                        <Link to="/profile" className="dropdown-item">Profile</Link>
                         <Link to="/cart" className="dropdown-item">Cart</Link>
                         <button className="dropdown-item"  onClick={handleLogout}>Logout</button>
                       </div>
