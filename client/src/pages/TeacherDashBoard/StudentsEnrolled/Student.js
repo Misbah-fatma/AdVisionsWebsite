@@ -24,7 +24,7 @@ const Student = () => {
   
     const handleDeleteUser = async (userId) => {
       try {
-        const response = await axios.delete(`http://localhost:5000/users/${userId}`);
+        const response = await axiosInstance.delete(`/users/${userId}`);
         setMessage(response.data.message);
         userList();
       } catch (error) {
@@ -61,7 +61,7 @@ const Student = () => {
             <div className="page-title-actions px-3 d-flex">
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
-                        <li className="breadcrumb-item"><a href="https://admin.razinskills.com">Dashboard</a></li>
+                        <li className="breadcrumb-item"><a href="/">Dashboard</a></li>
                         <li className="breadcrumb-item active" aria-current="page">Enrollment</li>
                     </ol>
                 </nav>

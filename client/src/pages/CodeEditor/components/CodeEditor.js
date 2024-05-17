@@ -25,12 +25,12 @@ const CodeEditor = () => {
 
   // Get user ID from userData
   const userId = userData ? userData._id : null;
-
+  const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL });
   // Function to fetch saved code from the database
   const fetchSavedCode = async (userId) => {
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/code/${userId}`, // Assuming your endpoint is /api/code/:userId
+      const response = await axiosInstance.get(
+        `/api/code/${userId}`, // Assuming your endpoint is /api/code/:userId
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("auth_token"),
@@ -51,8 +51,8 @@ const CodeEditor = () => {
   // Function to save code to the database
   const onSave = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/save",
+      const response = await axiosInstance.post(
+        "/api/save",
         { language, code, output, userId }, // Include output here
         {
           headers: {

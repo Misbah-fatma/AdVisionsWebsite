@@ -24,7 +24,7 @@ const Students = () => {
   
     const handleDeleteUser = async (userId) => {
       try {
-        const response = await axios.delete(`http://localhost:5000/users/${userId}`);
+        const response = await axiosInstance.delete(`/users/${userId}`);
         setMessage(response.data.message);
         userList();
       } catch (error) {

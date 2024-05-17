@@ -8,7 +8,7 @@ const CreateCourse = () => {
     const [courseLink, setCourseLink] = useState('');
     const [courseDescription, setCourseDescription] = useState('');
     const [coursePrice, setCoursePrice] = useState('');
-
+    const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL });
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
 
@@ -18,7 +18,7 @@ const CreateCourse = () => {
         setError('');
 
         try {
-            const response = await axios.put('http://localhost:5000/updateCourse', { courseName, courseLink, courseDescription, coursePrice });
+            const response = await axiosInstance.put('/updateCourse', { courseName, courseLink, courseDescription, coursePrice });
             setMessage(response.data.message);
         } catch (error) {
             setError(error.response?.data?.error || 'Error updating ');

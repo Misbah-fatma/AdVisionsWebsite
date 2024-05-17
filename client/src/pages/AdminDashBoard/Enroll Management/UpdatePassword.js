@@ -7,14 +7,14 @@ const CreateUser = () => {
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
-
+    const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL });
     const handleSubmit = async (event) => {
         event.preventDefault();
         setMessage('');
         setError('');
 
         try {
-            const response = await axios.put('http://localhost:5000/users/updatePassword', { email, password });
+            const response = await axiosInstance.put('/users/updatePassword', { email, password });
             setMessage(response.data.message);
         } catch (error) {
             setError(error.response?.data?.error || 'Error updating Password');
@@ -31,8 +31,8 @@ const CreateUser = () => {
             <div className="page-title-actions px-3 d-flex">
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
-                        <li className="breadcrumb-item"><a href="https://admin.razinskills.com">Dashboard</a></li>
-                        <li className="breadcrumb-item"><a href="https://admin.razinskills.com/instructor/list">Instructor</a></li>
+                        <li className="breadcrumb-item"><a href="/">Dashboard</a></li>
+                        <li className="breadcrumb-item"><a href="/">Instructor</a></li>
                         <li className="breadcrumb-item active" aria-current="page">Create</li>
                     </ol>
                 </nav>

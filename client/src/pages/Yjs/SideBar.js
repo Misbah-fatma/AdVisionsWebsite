@@ -8,13 +8,13 @@ const Sidebar = ({ onFileClick, onCodeSelect }) => {
   const [codes, setCodes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-
+  const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL });
   useEffect(() => {
     const fetchCodes = async () => {
       setIsLoading(true);
       try {
         const token = localStorage.getItem('auth_token'); // Changed from 'token' to 'auth_token'
-        const response = await axios.get("http://localhost:5000/api/code", {
+        const response = await axiosInstance.get("/api/code", {
           headers: {
             Authorization: "Bearer " + token, // Changed from 'localStorage.getItem("auth_token")' to 'token'
           }

@@ -28,7 +28,7 @@ const Student = () => {
   
     const handleDeleteUser = async (userId) => {
         try {
-          const response = await axios.delete(`http://localhost:5000/users/${userId}`);
+          const response = await axiosInstance.delete(`/users/${userId}`);
           setMessage(response.data.message);
           userList();
         } catch (error) {
@@ -57,7 +57,7 @@ const Student = () => {
 
     const handleToggleActive = async (userId, isActive) => {
         try {
-          const response = await axios.put(`http://localhost:5000/users/${userId}/active`, { active: !isActive });
+          const response = await axiosInstance.put(`/users/${userId}/active`, { active: !isActive });
           setMessage(response.data.message);
           userList();
         } catch (error) {

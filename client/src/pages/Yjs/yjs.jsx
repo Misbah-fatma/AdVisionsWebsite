@@ -20,8 +20,10 @@ function Yjs() {
 
   // Fetch users list
   const userList = async () => {
+    const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL})
+
     try {
-      const user = await axios.get("http://localhost:5000/users/student", {
+      const user = await axiosInstance.get("/users/student", {
         headers: {
           "Authorization": "Bearer " + localStorage.getItem("auth_token")
         }

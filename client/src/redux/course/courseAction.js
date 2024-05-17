@@ -13,7 +13,7 @@ export const getCourses = (courseInfo) => {
 export const fetchAllCourseInfo = () => {
   return (dispatch) => {
     const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL})
-    axios.get("http://localhost:5000/get-data-courses", {
+    axiosInstance.get("/get-data-courses", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("auth_token"),
       },

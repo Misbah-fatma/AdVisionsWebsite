@@ -7,14 +7,14 @@ const UpdateRole = () => {
     const [role, setRole] = useState('Student');
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
-
+    const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL });
     const handleSubmit = async (event) => {
         event.preventDefault();
         setMessage('');
         setError('');
 
         try {
-            const response = await axios.put('http://localhost:5000/users/updateRole', { email, role });
+            const response = await axiosInstance.put('/users/updateRole', { email, role });
             setMessage(response.data.message);
         } catch (error) {
             setError(error.response?.data?.error || 'Error updating role');

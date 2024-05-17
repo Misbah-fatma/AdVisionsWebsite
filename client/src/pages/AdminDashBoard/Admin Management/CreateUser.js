@@ -13,7 +13,7 @@ const CreateUser = () => {
       const [lgShow, setLgShow] = useState(false);
       const [loading, setLoading] = useState(false);
       const [toast, setToast] = useState(false);
-    
+      const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL });
       const handleClose = () => setShow(false);
       const handleShow = () => {setShow(true)
      };
@@ -25,7 +25,7 @@ const CreateUser = () => {
       const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          await axios.post('http://localhost:5000/users/createUser/', userData);
+          await axiosInstance.post('/users/createUser/', userData);
           alert('User added successfully!');
         } catch (error) {
           alert('Failed to add user: ' + error.message);
