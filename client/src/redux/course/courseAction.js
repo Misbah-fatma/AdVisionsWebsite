@@ -1,5 +1,5 @@
 import { GET__COURSES } from "./courseTypes";
-import Axios from "axios";
+import axios from "axios";
 
 export const getCourses = (courseInfo) => {
   console.log(courseInfo)
@@ -9,9 +9,11 @@ export const getCourses = (courseInfo) => {
   };
 };
 
-export const fetchCourseInfo = () => {
+
+export const fetchAllCourseInfo = () => {
   return (dispatch) => {
-    Axios.get("/get-data-courses", {
+    const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL})
+    axios.get("http://localhost:5000/get-data-courses", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("auth_token"),
       },
@@ -26,30 +28,54 @@ export const fetchCourseInfo = () => {
   
   };
 };
+export const fetchCourseInfo = (userId) => {
+  return (dispatch) => {
+    const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL})
+    axiosInstance.get(`/get-teacher-courses/${userId}`, { // Changed quotes to backticks
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: "Bearer " + localStorage.getItem("auth_token"),
+      },
+    })
+      .then((result) => {
+        dispatch(getCourses(result.data.courses));
+        console.log(result.data.courses)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
+
 
 export const deleteCourseItem = (courseId) => {
   return (dispatch) => {
-    try {
-        fetch("/delete", {
-            method: "delete",
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("auth_token"),
-              "Content-Type": "application/json",
-            },
-            body:JSON.stringify({
-              courseId
-            }) 
-          })
-            .then((res) => res.json())
-            .then((result) => {
-                dispatch(fetchCourseInfo())
-              
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-    } catch (err) {
-      console.log(err);
+    if (window.confirm("Are you sure you want to delete this course?")) {
+      const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL });
+      try {
+        axiosInstance.delete("/delete", {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("auth_token"),
+            "Content-Type": "application/json",
+          },
+          data: {
+            courseId
+          }
+        })
+        .then(() => {
+          dispatch(fetchCourseInfo());
+          alert("Course deleted successfully");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 };
+
+
+

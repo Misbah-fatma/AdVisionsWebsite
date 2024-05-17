@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addCart, delCart } from "../../redux/cart/cartAction";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Footer from "../LandingPage/Footer";
 
 const Cart = () => {
   const state = useSelector(state => state.cart);
@@ -194,13 +195,13 @@ const Cart = () => {
 <Navbar />
 
       <div className="container my-3 py-3">
-        <h1 className="text-center h1">Cart</h1>
+       
   
 
         {state && state.length > 0 ? <ShowCart /> : <EmptyCart />}
 
       </div>
- 
+ <Footer/>
     </>
   );
 };

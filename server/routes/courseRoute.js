@@ -4,7 +4,10 @@ const {
   getOneCourse__controller,
   deleteCourse__Controller,
   getAllData,
-  getItems__controller
+  getItems__controller,
+  updateCourse,
+  getCoursesByUserId,
+
 } = require("../controllers/courseController");
 
 const { adminAuthentication } = require("../middlewares/authentication");
@@ -30,7 +33,7 @@ router.post(
       next();
     });
   },
-  
+requireLogin,
   postCourse__controller
 );
 
@@ -40,8 +43,19 @@ router.post("/data-courses", getItems__controller);
 
 router.get("/get-courses", getAllData);
 
-router.get("/get-course/:courseId", requireLogin, adminAuthentication, getOneCourse__controller);
+router.get("/get-course/:courseId", getOneCourse__controller);
 
-router.delete('/delete', requireLogin, adminAuthentication, deleteCourse__Controller);
+router.delete('/delete', requireLogin, deleteCourse__Controller);
+
+router.put('/updateCourse', 
+updateCourse
+);
+
+router.get('/get-teacher-courses',requireLogin, getCoursesByUserId);
+
+
+
+
+
 
 module.exports = router;

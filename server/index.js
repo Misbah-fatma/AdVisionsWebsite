@@ -1,14 +1,11 @@
 const express = require("express");
-// const reportRouter = require('./routes/courseRoute');
-const MongoClient = require('mongodb').MongoClient; 
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-
 const { MONGO_URI, SECRET_KEY } = require("./config/keys");
-const CourseModel = require("./model/CourseModel");
 require('dotenv').config();
+
 
 // Middleware
 app.use("/uploads", express.static("uploads"));
@@ -17,16 +14,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Routes
-app.use("/api/auth", require("./routes/authRoute"));
-app.use("/api/", require("./routes/courseRoute"));
-app.use("/api/users", require("./routes/userRoute"));
-app.use("/api/profile", require("./routes/profileRoute"));
-app.use("/api/enroll-course", require("./routes/enrollRoute"));
-app.use("/api/cart", require("./routes/cartRoutes"));
-app.use('/api/items', require('./routes/SubCategoryRoute'));
-app.use('/api/', require('./routes/frontendsRoute'));
-
-
+app.use("/auth", require("./routes/authRoute"));
+app.use("/", require("./routes/courseRoute"));
+app.use("/users", require("./routes/userRoute"));
+app.use("/enroll-course", require("./routes/enrollRoute"));
+app.use("/cart", require("./routes/cartRoutes"));
+app.use("/api", require("./routes/codeRoute"));
 
 // Deploy
 if (process.env.NODE_ENV === 'production') {
@@ -53,6 +46,8 @@ mongoose
     console.log("Error occurred");
   });
 
+
+  
 
 
 

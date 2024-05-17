@@ -1,249 +1,113 @@
-import React from 'react'
-import Navbar from './Navbar'
-import Footer from './Footer'
-import "../../App.css"
+import React, { useState } from 'react';
+import Modal from "react-responsive-modal";
 
-export default function Services() {
-  return (
-    <>
-    <Navbar/>
-    {/* <!-- Hero Start --> */}
-    <div className="container-fluid pt-5 bg-primary hero-header">
-        <div className="container pt-5">
-            <div className="row g-5 pt-5">
-                <div className="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                    <h1 className="display-4 text-white mb-4 animated slideInRight">Our Services</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol className="breadcrumb justify-content-center justify-content-lg-start mb-0">
-                            <li className="breadcrumb-item"><a className="text-white" href="*">Home</a></li>
-                            <li className="breadcrumb-item text-white active" aria-current="page">Our Services</li>
-                        </ol>
+const Services = () => {
+    const [sign, setSign] = useState(false);
+    const [login, setLogin] = useState(false);
+
+    const onOpenModal = () => {
+        setSign(true);
+    };
+
+    const onOpenModalLogin = () => {
+        setLogin(true);
+    };
+
+    const onCloseModal = () => {
+        setSign(false);
+    };
+
+    const onCloseModalclose = () => {
+        setLogin(false);
+    };
+
+    return (
+        <>
+            <header className="header header-animated opaque" style={{ "display": 'block', "paddingTop": "5px", "paddingBottom": "5px" }}>
+                <div className="container">
+                    <nav className="navbar navbar-default" role="navigation">
+                        <div className="navbar-header">
+                            <a className="logo" href="#">
+                                {/* <img className="img-responsive logo" src={icon} alt="" data-logo-alt={icon} /> */}
+                            </a>
+                        </div>
+                        <div className="nav-toggle collapsed" data-toggle="collapse" data-target="#navbarMain" aria-expanded="false" style={{ "top": "15px" }}>
+                            <span>erfw</span>
+                            <span>wfw</span>
+                            <span>wefw</span>
+                            <span>wwdw</span>
+                            <span>fdwrrd</span>
+                            <span>wefwe</span>
+                        </div>
+                        <div className="navbar-collapse collapse in" id="navbarMain" aria-expanded="true" style={{ top: "65px" }}>
+                            <ul className="nav navbar-nav navbar-right">
+                                <li>
+                                    <button className="btn btn-primary-outline" id="signup" onClick={onOpenModal}>SignUp</button>
+                                </li>
+                                <li>
+                                    <button className="btn btn-primary-outline" id="login" onClick={onOpenModalLogin}>Login</button>
+                                </li>
+                            </ul>
+                            <ul className="nav navbar-nav collapsed-color">
+                                <li>
+                                    <a href="#">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#">About</a>
+                                </li>
+                                <li>
+                                    <a href="#">Features</a>
+                                </li>
+                                <li>
+                                    <a href="#">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="#">Products</a>
+                                </li>
+                            </ul>
+                        </div>
                     </nav>
                 </div>
-                <div className="col-lg-6 align-self-end text-center text-lg-end">
-                    <img className="img-fluid" src="assets/img/hero-img.png" alt="*" style={{maxHeight: "300px"}}/>
-                </div>
-            </div>
-        </div>
-    </div>
-    {/* <!-- Hero End --> */}
+            </header>
 
-
-    {/* <!-- Full Screen Search Start --> */}
-    <div className="modal fade" id="searchModal" tabIndex="-1">
-        <div className="modal-dialog modal-fullscreen">
-            <div className="modal-content" style={{background: "rgba(20, 24, 62, 0.7)"}}>
-                <div className="modal-header border-0">
-                    <button type="button" className="btn btn-square bg-white btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div className="modal-body d-flex align-items-center justify-content-center">
-                    <div className="input-group" style={{maxWidth: "600px"}}>
-                        <input type="text" className="form-control bg-transparent border-light p-3"
-                            placeholder="Type search keyword"/>
-                        <button className="btn btn-light px-4"><i className="bi bi-search"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {/* <!-- Full Screen Search End --> */}
-
-
-    {/* <!-- Service Start --> */}
-    <div className="container-fluid bg-light mt-5 py-5">
-                <div className="container py-5">
-                    <div className="row g-5 align-items-center">
-                        <div className="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
-                            <div className="btn btn-sm border rounded-pill text-primary px-3 mb-3">Our Services</div>
-                            <h1 className="mb-4">Our Innovative Solutions for Your Business</h1>
-                            <p className="mb-4">Elevate your business with personalized solutions crafted to precisely align with your requirements, maximizing your potential for success.</p>
-                          
+            {/* Sign up modal */}
+            <Modal open={sign} onClose={onCloseModal}>
+                <div className="modal-body">
+                    <h2>Get Started Absolutely<span> Free!</span></h2>
+                    <span className="subtitle">No credit card needed</span>
+                    <form className="contact-form form-validate3" noValidate>
+                        <div className="form-group">
+                            <input className="form-control" type="text" name="name" id="name" placeholder="First Name" required autoComplete="off" aria-required="true" />
                         </div>
-                        <div className="col-lg-7">
-                            <div className="row g-4">
-                                <div className="col-md-6">
-                                    <div className="row g-4">
-                                        <div className="col-12 wow fadeIn" data-wow-delay="0.1s">
-                                            <div className="service-item d-flex flex-column justify-content-center text-center rounded">
-                                                <div className="service-icon btn-square">
-                                                    <i className="fa fa-brain fa-2x"></i>
-                                                </div>
-                                                <h5 className="mb-3">Advanced Generative AI Development</h5>
-                                                <p>Train your dataset to generate original outputs such as images, text, or music using state-of-the-art generative AI techniques.</p>
-                                          
-                                            </div>
-                                        </div>
-                                        <div className="col-12 wow fadeIn" data-wow-delay="0.5s">
-                                            <div className="service-item d-flex flex-column justify-content-center text-center rounded">
-                                                <div className="service-icon btn-square">
-                                                    <i className="fa fa-graduation-cap fa-2x"></i>
-                                                </div>
-                                                <h5 className="mb-3">Corporate Trainings</h5>
-                                                <p>Boost team expertise with customized Corporate Training Solutions for colleges and startups. Enhance learning, drive innovation, and thrive in today's competitive industry.</p>
-                                             
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-6 pt-md-4">
-                                    <div className="row g-4">
-                                        <div className="col-12 wow fadeIn" data-wow-delay="0.3s">
-                                            <div className="service-item d-flex flex-column justify-content-center text-center rounded">
-                                                <div className="service-icon btn-square">
-                                                    <i className="fa fa-code fa-2x"></i>
-                                                </div>
-                                                <h5 className="mb-3">Custom Web Application Development</h5>
-                                                <p>Leverage our tailor-made services to address your specific industry needs, cater to your target audience, and enhance operational efficiency.</p>
-                                         
-                                            </div>
-                                        </div>
-                                        <div className="col-12 wow fadeIn" data-wow-delay="0.7s">
-                                            <div className="service-item d-flex flex-column justify-content-center text-center rounded">
-                                                <div className="service-icon btn-square">
-                                                    <i className="fa fa-brain fa-2x"></i>
-                                                </div>
-                                                <h5 className="mb-3">STEM Programs & ATL Lab Setup</h5>
-                                                <p>Transform education with Revolutionizing Education, featuring STEM Programs and AI-Robotics Labs, empowering students for future tech challenges.</p>
-                                             
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                               
-                                <div className="col-md-6 pt-md-4">
-                                    <div className="row g-4">
-                                        <div className="col-12 wow fadeIn" data-wow-delay="0.3s">
-                                            <div className="service-item d-flex flex-column justify-content-center text-center rounded">
-                                                <div className="service-icon btn-square">
-                                                    <i className="fa fa-code fa-2x"></i>
-                                                </div>
-                                                <h5 className="mb-3">Corporate Advice</h5>
-                                                <p>
-                                                We will provides expert consultancy services to businesses, offering 
-                                                strategic guidance on various aspects such as finance, management, operations, 
-                                                and organizational development to optimize performance and achieve long-term success.
-                                                     </p>
-                                              <span className="price-tag" >15$ for Web Development</span>
-                                              <span className="price-tag">25$ for Consultancy</span>
-                                            </div>
-                                        </div>
-                                    
-                                    </div>
-                                </div>
-                                <div className="col-md-6 pt-md-4">
-                                    <div className="row g-4">
-                                        <div className="col-12 wow fadeIn" data-wow-delay="0.3s">
-                                            <div className="service-item d-flex flex-column justify-content-center text-center rounded">
-                                                <div className="service-icon btn-square">
-                                                    <i className="fa fa-code fa-2x"></i>
-                                                </div>
-                                                <h5 className="mb-3">AI & Robotics Training</h5>
-                                                <p>
-                                                AI & Robotics Training offers comprehensive courses in artificial intelligence 
-                                                and robotics, providing hands-on experience in programming, machine learning, 
-                                                and autonomous system development. From beginners to professionals, our programs 
-                                                are designed to equip individuals with the skills needed to excel in these rapidly 
-                                                evolving fields.
-                                                </p>
-                                             
-                                            </div>
-                                        </div>
-                                
-                                    </div>
-                                </div>
-                         
-                                
-                            </div>
-                            
+                        <div className="form-group">
+                            <input className="form-control" type="email" name="email" placeholder="E-mail" required autoComplete="off" aria-required="true" />
                         </div>
-                    </div>
-                </div>
-            </div>
-            {/* <!-- Service End --> */}
-
-
-    {/* <!-- Testimonial Start --> */
-    /* <div className="container-xxl py-5">
-        <div className="container py-5">
-            <div className="row g-5">
-                <div className="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
-                    <div className="btn btn-sm border rounded-pill text-primary px-3 mb-3">Testimonial</div>
-                    <h1 className="mb-4">What Say Our Clients!</h1>
-                    <p className="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor eirmod magna dolore erat amet</p>
-                    <a className="btn btn-primary rounded-pill px-4" href="*">Read More</a>
-                </div>
-                <div className="col-lg-7 wow fadeIn" data-wow-delay="0.5s">
-                    <div className="owl-carousel testimonial-carousel border-start border-primary">
-                        <div className="testimonial-item ps-5">
-                            <i className="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                            <p className="fs-4">Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
-                            <div className="d-flex align-items-center">
-                                <img className="img-fluid flex-shrink-0 rounded-circle" src="assets/img/testimonial-1.jpg"
-                                  alt="*" style={{width: "60px", height: "60px"}}/>
-                                <div className="ps-3">
-                                    <h5 className="mb-1">Client Name</h5>
-                                    <span>Profession</span>
-                                </div>
-                            </div>
+                        <div className="form-group">
+                            <input type="password" name="pass" className="form-control" placeholder="Password" required autoComplete="off" aria-required="true" />
                         </div>
-                        <div className="testimonial-item ps-5">
-                            <i className="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                            <p className="fs-4">Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
-                            <div className="d-flex align-items-center">
-                                <img className="img-fluid flex-shrink-0 rounded-circle" src="assets/img/testimonial-2.jpg"
-                                   alt="*" style={{width: "60px", height: "60px"}}/>
-                                <div className="ps-3">
-                                    <h5 className="mb-1">Client Name</h5>
-                                    <span>Profession</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="testimonial-item ps-5">
-                            <i className="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                            <p className="fs-4">Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
-                            <div className="d-flex align-items-center">
-                                <img className="img-fluid flex-shrink-0 rounded-circle" src="assets/img/testimonial-3.jpg"
-                                  alt="*"  style={{width: "60px", height: "60px"}}/>
-                                <div className="ps-3">
-                                    <h5 className="mb-1">Client Name</h5>
-                                    <span>Profession</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <input className="btn btn-md btn-primary btn-center" id="sign_up" type="button" value="Sign Up" />
+                    </form>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End --> */}
+            </Modal>
 
+            {/* Login modal */}
+            <Modal open={login} onClose={onCloseModalclose}>
+                <div className="modal-body">
+                    <h2>Login and Get <span>Started</span></h2>
+                    <span className="subtitle">Just fill in the form below</span>
+                    <form className="contact-form form-validate4" noValidate>
+                        <div className="form-group">
+                            <input className="form-control" type="email" name="email" placeholder="E-mail" required autoComplete="off" aria-required="true" />
+                        </div>
+                        <div className="form-group">
+                            <input type="password" name="pass" className="form-control" placeholder="Password" required autoComplete="off" aria-required="true" />
+                        </div>
+                        <input className="btn btn-md btn-primary btn-center" id="login_btn" type="button" value="Login" />
+                    </form>
+                </div>
+            </Modal>
+        </>
+    );
+};
 
-    {/* <!-- Newsletter Start --> */}
-    <div className="container-fluid bg-primary newsletter py-5">
-        <div className="container">
-            <div className="row g-5 align-items-center">
-                <div className="col-md-5 ps-lg-0 pt-5 pt-md-0 text-start wow fadeIn" data-wow-delay="0.3s">
-                    <img className="img-fluid" src="assets/img/newsletter.png" alt="*"/>
-                </div>
-                <div className="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
-                    <div className="btn btn-sm border rounded-pill text-white px-3 mb-3">Newsletter</div>
-                    <h1 className="text-white mb-4">Let's subscribe the newsletter</h1>
-                    <div className="position-relative w-100 mt-3 mb-2">
-                        <input className="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text"
-                            placeholder="Enter Your Email" style={{height: "48px"}}/>
-                        <button type="button" className="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i
-                                className="fa fa-paper-plane text-primary fs-4"></i></button>
-                    </div>
-                    <small className="text-white-50">Diam sed sed dolor stet amet eirmod</small>
-                </div>
-            </div>
-        </div>
-    </div>
-    {/* <!-- Newsletter End --> */}
-    <Footer/>
-    </>
-  )
-}
+export default Services;

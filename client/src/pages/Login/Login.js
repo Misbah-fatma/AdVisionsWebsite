@@ -69,24 +69,7 @@ const Login = () => {
   return (
     <div>
       <Navbar/>
-         <div className="container-fluid pt-5 bg-primary hero-header">
-                <div className="container pt-5">
-                    <div className="row g-5 pt-5">
-                        <div className="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                            <h1 className="display-4 text-white mb-4 animated slideInRight">Login</h1>
-                            <nav aria-label="breadcrumb">
-                                <ol className="breadcrumb justify-content-center justify-content-lg-start mb-0">
-                                    <li className="breadcrumb-item"><a className="text-white" href="*">Home</a></li>
-                                    <li className="breadcrumb-item text-white active" aria-current="page">Login</li>
-                                </ol>
-                            </nav>
-                        </div>
-                        <div className="col-lg-6 align-self-end text-center text-lg-end">
-                            <img className="img-fluid" src="assets/img/hero-img.png" alt="*" style={{ maxHeight: "300px" }} />
-                        </div>
-                    </div>
-                </div>
-            </div>
+     
             <div className="modal fade" id="searchModal" tabIndex="-1">
                 <div className="modal-dialog modal-fullscreen">
                     <div className="modal-content" style={{ background: "rgba(20, 24, 62, 0.7)" }}>
@@ -104,73 +87,13 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-      {/* <Container>
-        <Toast_Comp
-          setToast={setToast}
-          renderToast={toast}
-          msg="Login Success"
-        />
-        <Row>
-          <Col md={6} className="mx-auto mt-4 ">
-            <Paper className="p-4 shadow rounded">
-              <Typography
-                className="text-center text-primary mb-3"
-                variant="h5"
-              >
-                Login Here
-              </Typography>
-              {loading && <Spinner_comp />}
-              {error && error.userExist && (
-                <Alert_Comp variant="danger" msg={error.userExist} />
-              )}
-
-              <Form onSubmit={formSubmitHandler}>
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    type="email"
-                    placeholder="Enter email"
-                  />
-                  <span style={{ color: "red" }}>{error && error.email}</span>
-                </Form.Group>
-                <Form.Group controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    type="password"
-                    placeholder="Password"
-                  />
-                  <span style={{ color: "red" }}>
-                    {error && error.password}
-                  </span>
-                </Form.Group>
-
-                <Typography style={{ color: "GrayText" }} variant="subtitle2">
-                  Don't Have an account?
-                  <Link to="/register">Register Here</Link>
-                </Typography>
-                <Button
-                  className="mt-2"
-                  color="primary"
-                  variant="contained"
-                  type="submit"
-                >
-                  Login
-                </Button>
-              </Form>
-            </Paper>
-          </Col>
-        </Row>
-      </Container> */}
+   
        <Toast_Comp
           setToast={setToast}
           renderToast={toast}
           msg="Login Success"
         />
-      <section className="vh-100">
+      <section >
                 <div className="container-fluid h-custom py-5">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-md-9 col-lg-6 col-xl-5">
@@ -245,6 +168,8 @@ const Login = () => {
                     </div>
                 </div>
             </section>
+
+
             <Footer/>
     </div>
   );

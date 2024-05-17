@@ -26,26 +26,23 @@ const Home = () => {
     return (
         <>
         <Navbar/>
-        {items.map((items) => {
-              
-                    return <div key={items._id} className="container-fluid pt-5 bg-primary hero-header" style={{ background: `url(/assets/img/AI.jpg)`, backgroundSize: "cover" }}>
-                        <div className="container pt-5">
-                            <div className="row g-5 pt-5">
-                                <div className="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                                    <div className="btn btn-sm border rounded-pill text-white px-3 mb-3 animated slideInRight">AI.Tech</div>
-                                    <h1 className="display-4 text-white mb-4 animated slideInRight">{items.description}</h1>
-                                    <p className="text-white mb-4 animated slideInRight">Enhance Your Vision, Transform Your Life</p>
-                                    {/* <a href="*" className="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInRight">Read More</a> */}
-                                  <Link to = "/Contact"> <a  className="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a></Link> 
-                                </div>
-                                <div className="col-lg-6 align-self-end text-center text-lg-end">
-                                    <img className="img-fluid" src={items.pic} alt="*" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                })
-            }
+        <div className="container-fluid pt-5 bg-primary hero-header position-relative" style={{ backgroundImage: `url(/assets/img/hero_1.jpg)`, backgroundSize: "cover", height: "100vh" }}>
+  <div className="position-absolute top-0 start-0 w-100 h-100" style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}></div>
+  <div className="container pt-5 position-relative">
+    <div className="row justify-content-center mb-4 pt-5" data-aos="fade-up" data-aos-delay="400">
+      <div className="col-md-8 text-center text-white pt-5">
+        <h1 className='pt-5 text-white'>We're dedicated to empowering your learning journey</h1>
+        <p className="lead mb-5 h4 text-white">Whether you seek skill enhancement, <span>new explorations, career advancement, or learn a different skill</span></p>
+        <p>Unlock your potential with our tailored courses designed to meet your unique learning goals.</p>
+        <div>
+          <a data-fancybox data-ratio="2" href="" className="btn btn-primary btn-md">Watch Video</a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
             <div className="modal fade" id="searchModal" tabIndex="-1">
@@ -69,27 +66,27 @@ const Home = () => {
 
 
             {/* <!-- Feature Start --> */}
-            <div className="container-fluid bg-primary feature pt-5">
+            <div className="container-fluid feature pt-5">
                 <div className="container pt-5">
                     <div className="row g-5">
                         <div className="col-lg-6 align-self-center mb-md-5 pb-md-5 wow fadeIn" data-wow-delay="0.3s">
-                            <div className="btn btn-sm border rounded-pill text-white px-3 mb-3">Why Choose Us</div>
-                            <h1 className="text-white mb-4">We're Best in AI Industry with 5 Years of Experience</h1>
-                            <p className="text-light mb-4">Choose us for AI tech and software: Expertise, innovation, proven track record, scalable solutions, customer-centric approach, robust support, cost-effectiveness, security, collaborative partnership.
+                            <div className="btn btn-sm border rounded-pill  px-3 mb-3">Why Choose Us</div>
+                            <h1 className=" mb-4">We're Best in AI Industry with 5 Years of Experience</h1>
+                            <p className=" mb-4">Choose us for AI tech and software: Expertise, innovation, proven track record, scalable solutions, customer-centric approach, robust support, cost-effectiveness, security, collaborative partnership.
                             </p>
-                            <div className="d-flex align-items-center text-white mb-3">
+                            <div className="d-flex align-items-center  mb-3">
                                 <div className="btn-sm-square bg-white text-primary rounded-circle me-3">
                                     <i className="fa fa-check"></i>
                                 </div>
                                 <span>We boast a team of industry-leading professionals</span>
                             </div>
-                            <div className="d-flex align-items-center text-white mb-3">
+                            <div className="d-flex align-items-center  mb-3">
                                 <div className="btn-sm-square bg-white text-primary rounded-circle me-3">
                                     <i className="fa fa-check"></i>
                                 </div>
                                 <span>Timely, precise solutions delivered comprehensively with efficacy</span>
                             </div>
-                            <div className="d-flex align-items-center text-white mb-3">
+                            <div className="d-flex align-items-center  mb-3">
                                 <div className="btn-sm-square bg-white text-primary rounded-circle me-3">
                                     <i className="fa fa-check"></i>
                                 </div>
@@ -98,118 +95,140 @@ const Home = () => {
                             <div className="row g-4 pt-3">
                                 <div className="col-sm-6">
                                     <div className="d-flex rounded p-3" style={{ background: "rgba(256, 256, 256, 0.1)" }}>
-                                        <i className="fa fa-users fa-3x text-white"></i>
+                                        <i className="fa fa-users fa-3x "></i>
                                         <div className="ms-3">
-                                            <h2 className="text-white mb-0" data-toggle="counter-up">73</h2>
-                                            <p className="text-white mb-0">Happy Clients</p>
+                                            <h2 className=" mb-0" data-toggle="counter-up">73</h2>
+                                            <p className=" mb-0">Happy Clients</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-sm-6">
                                     <div className="d-flex rounded p-3" style={{ background: "rgba(256, 256, 256, 0.1)" }}>
-                                        <i className="fa fa-check fa-3x text-white"></i>
+                                        <i className="fa fa-check fa-3x "></i>
                                         <div className="ms-3">
-                                            <h2 className="text-white mb-0" data-toggle="counter-up">28</h2>
-                                            <p className="text-white mb-0">Project Complete</p>
+                                            <h2 className=" mb-0" data-toggle="counter-up">28</h2>
+                                            <p className=" mb-0">Project Complete</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-6 align-self-end text-center text-md-end wow fadeIn" data-wow-delay="0.5s">
-                            <img className="img-fluid" src="assets/img/feature.png" alt="*" />
-                        </div>
+  <img className="img-fluid" src="assets/img/Lmsnew.png" alt="*" />
+</div>
+
                     </div>
                 </div>
             </div>
             {/* <!-- Feature End --> */}
 
             {/* <!-- Service Start --> */}
-            <div className="container-fluid bg-light mt-5 py-5">
-                <div className="container py-5">
-                    <div className="row g-5 align-items-center">
-                        <div className="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
-                            <div className="btn btn-sm border rounded-pill text-primary px-3 mb-3">Our Services</div>
-                            <h1 className="mb-4">Our Innovative Solutions for Your Business</h1>
-                            <p className="mb-4">Elevate your business with personalized solutions crafted to precisely align with your requirements, maximizing your potential for success.</p>
-                            {/* <a className="btn btn-primary rounded-pill px-4" href="*">Read More</a> */}
-                        </div>
-                        <div className="col-lg-7">
-                            <div className="row g-4">
-                                <div className="col-md-6">
-                                    <div className="row g-4">
-                                        <div className="col-12 wow fadeIn" data-wow-delay="0.1s">
-                                            <div className="service-item d-flex flex-column justify-content-center text-center rounded">
-                                                <div className="service-icon btn-square">
-                                                    <i className="fa fa-brain fa-2x"></i>
-                                                </div>
-                                                <h5 className="mb-3">Advanced Generative AI Development</h5>
-                                                <p>Train your dataset to generate original outputs such as images, text, or music using state-of-the-art generative AI techniques.</p>
-                                                {/* <a className="btn px-3 mt-auto mx-auto" href="*">Read More</a> */}
-                                            </div>
-                                        </div>
-                                        <div className="col-12 wow fadeIn" data-wow-delay="0.5s">
-                                            <div className="service-item d-flex flex-column justify-content-center text-center rounded">
-                                                <div className="service-icon btn-square">
-                                                    <i className="fa fa-graduation-cap fa-2x"></i>
-                                                </div>
-                                                <h5 className="mb-3">Corporate Trainings</h5>
-                                                <p>Boost team expertise with customized Corporate Training Solutions for colleges and startups. Enhance learning, drive innovation, and thrive in today's competitive industry.</p>
-                                                {/* <a className="btn px-3 mt-auto mx-auto" href="*">Read More</a> */}
-                                            </div>
-                                        </div>
-                                        <div className="col-12 wow fadeIn" data-wow-delay="0.3s">
-                                            <div className="service-item d-flex flex-column justify-content-center text-center rounded">
-                                                <div className="service-icon btn-square">
-                                                    <i className="fa fa-code fa-2x"></i>
-                                                </div>
-                                                <h5 className="mb-3">Robotics Process Automation</h5>
-                                                <p>Enhance business efficiency with RPA, employing software robots to automate repetitive tasks, streamlining processes with advanced automation technology for increased productivity.</p>
-                                                {/* <a className="btn px-3 mt-auto mx-auto" href="*">Read More</a> */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-6 pt-md-4">
-                                    <div className="row g-4">
-                                        <div className="col-12 wow fadeIn" data-wow-delay="0.3s">
-                                            <div className="service-item d-flex flex-column justify-content-center text-center rounded">
-                                                <div className="service-icon btn-square">
-                                                    <i className="fa fa-code fa-2x"></i>
-                                                </div>
-                                                <h5 className="mb-3">Custom Web Application Development</h5>
-                                                <p>Leverage our tailor-made services to address your specific industry needs, cater to your target audience, and enhance operational efficiency.</p>
-                                                {/* <a className="btn px-3 mt-auto mx-auto" href="*">Read More</a> */}
-                                            </div>
-                                        </div>
-                                        <div className="col-12 wow fadeIn" data-wow-delay="0.7s">
-                                            <div className="service-item d-flex flex-column justify-content-center text-center rounded">
-                                                <div className="service-icon btn-square">
-                                                    <i className="fa fa-brain fa-2x"></i>
-                                                </div>
-                                                <h5 className="mb-3">STEM Programs & ATL Lab Setup</h5>
-                                                <p>Transform education with Revolutionizing Education, featuring STEM Programs and AI-Robotics Labs, empowering students for future tech challenges.</p>
-                                                {/* <a className="btn px-3 mt-auto mx-auto" href="*">Read More</a> */}
-                                            </div>
-                                        </div>
-                                        
-                                        <div className="col-12 wow fadeIn" data-wow-delay="0.3s">
-                                            <div className="service-item d-flex flex-column justify-content-center text-center rounded">
-                                                <div className="service-icon btn-square">
-                                                    <i className="fa fa-code fa-2x"></i>
-                                                </div>
-                                                <h5 className="mb-3">Digital Twins</h5>
-                                                <p>Utilize digital twin technology to create virtual models of assets and processes, facilitating real-time monitoring and simulation for operational optimization, reduced downtime, and innovation.</p>
-                                                {/* <a className="btn px-3 mt-auto mx-auto" href="*">Read More</a> */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            <a className=" py-5 d-block" style={{backgroundColor : "black", textDecoration : "none"}}>
+  <div className="container">
+    <div className="row justify-content-center">
+      <div className="col-md10"
+      ><h2 className="text-white">Let's Get Started</h2></div>
+    </div>
+  </div>  
+</a>
+
+
+            <section className="site-section mt-4" id="work-section">
+  <div className="container mt-4">
+    <div className="row mb-5 justify-content-center ">
+      <div className="col-md-8 text-center">
+        <h2 className="text-black h1 site-section-heading text-center">Our Popular Courses</h2>
+        <p className="lead">Discover courses in mindfulness, productivity, time management, and other essential life skills to help you become the best version of yourself.</p>
+      </div>
+    </div>
+  </div>
+  <div className="container">
+    <div className="row">
+      <div className="col-md-6 col-lg-4 mb-4">
+        <div className="card h-100">
+          <img src="assets/img/100.png" className="card-img-top img-fluid" alt="Image" style={{ height: '300px' }} />
+          <div className="card-body">
+            <h2 className="card-title h5">100 Days of Code Challenge: Master Web Development in 100 Days</h2>
+            <hr className="my-3" />
+            <p className="card-text">Learn the Fundamentals: Master HTML, CSS, and JavaScript, the building blocks of web development.</p>
+            <p className="card-text">Explore Advanced Topics: Dive into frameworks and libraries like React.js, Node.js, and MongoDB to build full-stack web applications.</p>
+         <p className='card-text'> Build Real-World Projects: Put your skills to the test by building a portfolio of projects, including responsive websites, web applications, and more.</p>
+          </div>
+        </div>
+      </div>
+      <div className="col-md-6 col-lg-4 mb-4">
+        <div className="card h-100">
+          <img src="assets/img/python.png" className="card-img-top img-fluid" alt="Image" style={{ height: '300px' }} />
+          <div className="card-body">
+            <h2 className="card-title h5">The Complete Python Course: From Beginner to Advanced</h2>
+            <hr className="my-3" />
+            <p className="card-text">Master the Basics: Learn Python syntax, data types, control structures, and functions.</p>
+            <p className="card-text">Explore Advanced Topics: Dive into object-oriented programming, file handling, and working with databases.</p>
+            <p className="card-text">Build Real-World Projects: Put your skills to the test by building practical projects, including web applications, data analysis tools, and more.</p>
+          </div>
+        </div>
+      </div>
+      <div className="col-md-6 col-lg-4 mb-4">
+        <div className="card h-100">
+          <img src="assets/img/react.png" className="card-img-top img-fluid" alt="Image" style={{ height: '300px' }} />
+          <div className="card-body">
+            <h2 className="card-title h5">Master React.js and Build Dynamic Web Applications</h2>
+            <hr className="my-3" />
+            <p className="card-text">Our comprehensive React.js course will teach you everything you need to know to build dynamic and interactive web applications.</p>
+        <p className='card-text'>Explore Advanced Topics: Dive into React Router, Redux, Hooks, Context API, and other advanced React.js concepts.</p>
+        <p className='card-text'>Understand React Ecosystem: Explore popular React.js libraries and tools like React Bootstrap, Material-UI, Axios, and Redux Toolkit.</p>
+        
+          </div>
+        </div>
+      </div>
+      <div className="col-md-6 col-lg-4 mb-4">
+        <div className="card h-100">
+          <img src="assets/img/webs.png" className="card-img-top img-fluid" alt="Image" style={{ height: '300px' }} />
+          <div className="card-body">
+            <h2 className="card-title h5">Creating Responsive Websites</h2>
+            <hr className="my-3" />
+            <p className="card-text">Master HTML5 and CSS3 techniques for building flexible layouts.</p>
+            <p className="card-text">Learn how to use media queries to target different devices and screen sizes.</p>
+            <p className="card-text">Discover the latest tools and frameworks for responsive web design, including Bootstrap and Flexbox.</p>
+          </div>
+        </div>
+      </div>
+      <div className="col-md-6 col-lg-4 mb-4">
+        <div className="card h-100">
+          <img src="assets/img/node.png" className="card-img-top img-fluid" alt="Image" style={{ height: '300px' }} />
+          <div className="card-body">
+            <h2 className="card-title h5">Master Node.js and Build Scalable Web Applications</h2>
+            <hr className="my-3" />
+            <p className="card-text">Gain a deep understanding of Node.js and its core modules.</p>
+            <p className="card-text">Learn how to build server-side applications using Express.js, the most popular web application framework for Node.js.</p>
+          <p className='card-text'>Explore asynchronous programming and understand how to work with callbacks, promises, and async/await.
+Build RESTful APIs and integrate them with databases like MongoDB.</p>
+          </div>
+        </div>
+      </div>
+      <div className="col-md-6 col-lg-4 mb-4">
+        <div className="card h-100">
+          <img src="assets/img/mongo.png" className="card-img-top img-fluid" alt="Image" style={{ height: '300px' }} />
+          <div className="card-body">
+            <h2 className="card-title h5">Master MongoDB: The NoSQL Database for Modern Applications</h2>
+            <hr className="my-3" />
+            <p className="card-text">Gain a deep understanding of MongoDB's document-based data model and how it differs from traditional relational databases.</p>
+            <p className="card-text">Learn how to perform CRUD operations (Create, Read, Update, Delete) using MongoDB's powerful query language.</p>
+            <p className="card-text">Explore advanced MongoDB features such as indexing, aggregation, and replication.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
            <News/>
            <Footer/>
             

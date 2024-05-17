@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
+import logo10 from "./logo10.png"
 export default function Navbar() {
 
   useEffect(() => {
@@ -48,37 +48,38 @@ const handleLogout = () => {
     <>
 
       {/* <!-- Navbar Start --> */}
-      <div className="container-fluid sticky-top bg-primary">
+      <div className="container-fluid bg-white sticky-top ">
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-dark p-0">
             <Link to="/" className="navbar-brand">
-              <h1 className="text-white">
-                <span className="text-dark">AD</span>VISIONS
-              </h1>
+            <Link to="/" className="navbar-brand d-flex align-items-center">
+        <img src={logo10} alt="Logo" style={{ height: "40px", marginRight: "5px" }} />
+       
+    </Link>
             </Link>
             <button
               type="button"
-              className="navbar-toggler ms-auto me-0"
+              className="navbar-toggler ms-auto me-0 bg-black "
               data-bs-toggle="collapse"
               data-bs-target="#navbarCollapse"
             >
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
-              <div className="navbar-nav ms-auto">
+              <div className="navbar-nav ms-auto bg-white">
                 <Link to="/" className="nav-item nav-link active">
                   Home
                 </Link>
-                <Link to="/about" className="nav-item nav-link">
-                  About
+                <Link to="/Courses1" className="nav-item nav-link active">
+                Courses
                 </Link>
-                <Link to="/Services" className="nav-item nav-link">
-                  Services
+                <Link to="/cart" className="nav-item nav-link active">
+                Cart ({state ? state.length : 0})
                 </Link>
-                <div className="nav-item dropdown">
+                {/* <div className="nav-item dropdown">
                   <a
                     href="*#"
-                    className="nav-link dropdown-toggle"
+                    className="nav-link dropdown-toggle active"
                     data-bs-toggle="dropdown"
                   >
                     Our Work
@@ -92,29 +93,36 @@ const handleLogout = () => {
                     </Link>
 
         
-                    <Link to="/team" className="dropdown-item">
-                      Our Team
+                    <Link to="/yjseditor" className="dropdown-item">
+                    YJS Editor
                     </Link>
 
                   </div>
-                </div>
+                </div> */}
                 {/* <Link to="/admin" className="nav-item nav-link">Admin</Link> */}
-                <Link to="/contact" className="nav-item nav-link">
-                  Contact
+                <Link to="/codeEditor" className="nav-item nav-link active">
+                Code Editor
                 </Link>
+
+                
+                <Link to="/yjseditor" className="nav-item nav-link active">
+                    YJS Editor
+                    </Link>
+            
               </div>
               <div className="navbar-nav ml-auto py-0 d-none d-lg-block">
                 {
                   userData ?
                     <div className="nav-item dropdown">
                       <a href="/" className="nav-link dropdown-toggle text-dark" data-toggle="dropdown">{userData.userName} <i className="fa fa-user-cirle-o mt-1" aria-hidden="true"></i></a>
-                      <div className="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                        <Link to="/profile" className="dropdown-item">Profile</Link>
-                        <Link to="/cart" className="dropdown-item">Cart</Link>
+                      <div className="dropdown-menu  rounded-0 border-0 m-0">
+                        <Link to="/student-dashboard" className="dropdown-item">Dashboard</Link>
+                     
+                       
                         <button className="dropdown-item"  onClick={handleLogout}>Logout</button>
                       </div>
                     </div> :
-                    <Link to="/login" className="nav-item nav-link">Login</Link>
+                    <Link to="/login" className="nav-item nav-link active">Login</Link>
                 }
               </div>
               <button

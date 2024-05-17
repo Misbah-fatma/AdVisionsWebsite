@@ -1,71 +1,91 @@
 const CourseModel = require("../model/CourseModel");
-const cloudinary=require('../middlewares/cloudinary')
+const cloudinary=require('../middlewares/cloudinary');
+const { requireLogin } = require("../middlewares/requireLogin");
+const LectureModel = require("../model/Lectures");
 
 module.exports.postCourse__controller = async (req, res, next) => {
   try {
-    const studentInfo=await CourseModel.find({role:"Student"})
-    const { courseDescription, courseName, courseLink, coursePrice } = req.body;
+    console.log(req.body); // Log the request body to see what data is being sent
 
-    if (!courseDescription || !courseName ) {
+    const { courseDescription, courseName, courseLink, coursePrice, lectures } = req.body;
+
+    if (!courseDescription || !courseName || !courseLink || !coursePrice || !lectures) {
       return res.status(400).json({
         error: "Please Provide All Information",
       });
     }
 
-    // const picUrls = await Promise.all(req.files.map(async (file) => {
-    //   const pic = await cloudinary.uploader.upload(file.path);
-    //   return pic.secure_url;
-    // }));
-    // const coursePdf = picUrls.join(',');
-
     const imgFiles = req.files['img']; // Get the thumbnail image file
-const pdfFiles = req.files['pdf']; // Get the PDF files
+    const pdfFiles = req.files['pdf']; // Get the PDF files
 
-// Handle the thumbnail image upload
-const imgUrls = await Promise.all(imgFiles.map(async (file) => {
-  const pic = await cloudinary.uploader.upload(file.path);
-  return pic.secure_url;
-}));
+    let courseThumbnail = "";
+    let coursePdf = "";
 
-//Handle the PDF files upload
-const pdfUrls = await Promise.all(pdfFiles.map(async (file) => {
-  const pdf = await cloudinary.uploader.upload(file.path);
-  return pdf.secure_url;
-}));
+    if (imgFiles && imgFiles.length > 0) {
+      // Handle the thumbnail image upload
+      const imgUrls = await Promise.all(imgFiles.map(async (file) => {
+        const pic = await cloudinary.uploader.upload(file.path);
+        return pic.secure_url;
+      }));
 
-const courseThumbnail = imgUrls[0]; // Assuming only one thumbnail image is uploaded
-const coursePdf = pdfUrls.join(',');
+      courseThumbnail = imgUrls[0]; // Assuming only one thumbnail image is uploaded
+    }
 
-    //const url = req.protocol + "://" + req.get("host");
+    if (pdfFiles && pdfFiles.length > 0) {
+      // Handle the PDF files upload
+      const pdfUrls = await Promise.all(pdfFiles.map(async (file) => {
+        const pdf = await cloudinary.uploader.upload(file.path, { resource_type: "auto", response_type: "stream" });
+        return pdf.secure_url;
+      }));
 
+      coursePdf = pdfUrls.join(',');
+    }
+
+    let savedLectures = [];
+
+    // Parse the lectures string to an array of objects
+    const parsedLectures = JSON.parse(lectures);
+    
+    if (Array.isArray(parsedLectures) && parsedLectures.length > 0) {
+      // Save lectures
+      savedLectures = await Promise.all(parsedLectures.map(async (lecture) => {
+        const newLecture = new LectureModel({
+          title: lecture.title,
+          description: lecture.description,
+          videoUrl: lecture.videoUrl,
+          teacherId: req.user._id // Associate lecture with teacher
+        });
+        await newLecture.save();
+        return newLecture._id;
+      }));
+    }
+
+    // Save course details
     const course = new CourseModel({
-      courseDescription,     
+      courseDescription,
       courseName,
-      courseThumbnail: courseThumbnail,
+      courseThumbnail,
       courseLink,
       coursePrice,
-      coursePdf : coursePdf
-    
-
+      coursePdf,
+      teacher: req.user._id,
+      lectures: savedLectures // Associate course with lectures
     });
-    course
-      .save()
-      .then((result) => {
-        console.log(result)
-        return res.status(200).json({
-          result,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        return res.status(400).json({
-          error: "Something went wrong1",
-        });
-      });
+
+    await course.save();
+
+    // Update lecture objects with courseId
+    await LectureModel.updateMany({ _id: { $in: savedLectures } }, { $set: { courseId: course._id } });
+
+    return res.status(200).json({
+      message: "Course and Lectures added successfully",
+      course: course,
+      lectures: savedLectures
+    });
   } catch (err) {
     console.log(err);
     return res.status(400).json({
-      error: "Something went wrong2",
+      error: "Something went wrong",
     });
   }
 };
@@ -87,6 +107,8 @@ module.exports.getCourses__controller = async (req, res, next) => {
     });
   }
 };
+
+
 
 module.exports.getOneCourse__controller = async (req, res, next) => {
   try {
@@ -163,3 +185,107 @@ module.exports.getItems__controller = async (req, res, next) => {
     })
 }
 };
+
+exports.updateCourse = async (req, res) => {
+  const { courseName, courseLink, courseDescription, coursePrice } = req.body;
+  if (!courseName || !courseLink || !courseDescription || !coursePrice) {
+      return res.status(400).json({ error: 'courseLink and coursePdf must be provided' });
+  }
+
+  try {
+      const updatedUser = await CourseModel.findOneAndUpdate({ courseName }, { courseLink, courseDescription, coursePrice },{ new: true });
+      if (!updatedUser) {
+          return res.status(404).json({ error: 'Course not found' });
+      }
+      res.json({ message: 'Course role updated successfully', user: updatedUser });
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+module.exports.getCoursesByUserId = async (req, res) => {
+  try {
+    const userId = req.params.user_id; // Corrected this line
+
+    const courses = await CourseModel.find({ teacher: userId }); // Corrected this line
+    res.status(200).json({ success: true, courses: courses }); // Sending the courses as part of the response
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+};
+
+
+module.exports.createCourse = async (req, res) => {
+  try {
+    const {
+      courseName,
+      courseDescription,
+      courseThumbnail,
+      courseLink,
+      coursePrice,
+      coursePdf,
+      role,
+      teacher
+    } = req.body;
+
+    // Create new course
+    const newCourse = new CourseModel({
+      courseName,
+      courseDescription,
+      courseThumbnail,
+      courseLink,
+      coursePrice,
+      coursePdf,
+      role,
+      teacher
+    });
+
+    // Save new course
+    const course = await newCourse.save();
+
+    res.status(201).json(course);
+  } catch (error) {
+    res.status(500).json({ message: 'Something went wrong', error: error.message });
+  }
+};
+
+
+exports.addCourse = async (req, res) => {
+  try {
+    const {
+      courseName,
+      courseDescription,
+      courseThumbnail,
+      courseLink,
+      coursePrice,
+      coursePdf,
+      lectures,
+    } = req.body;
+
+    // Create lectures
+    const createdLectures = await LectureModel.insertMany(lectures);
+
+    // Create course with lectures
+    const newCourse = new CourseModel({
+      courseName,
+      courseDescription,
+      courseThumbnail,
+      courseLink,
+      coursePrice,
+      coursePdf,
+      lectures: createdLectures.map((lecture) => lecture._id),
+    });
+
+    await newCourse.save();
+    res.status(201).json({ message: "Course created successfully" });
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
+
+
+
+

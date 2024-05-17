@@ -1,6 +1,4 @@
 const mongoose=require('mongoose')
-
-
 const userSchema= mongoose.Schema({
     userName: {
         type: String,
@@ -15,16 +13,17 @@ const userSchema= mongoose.Schema({
         required: true
     },
 
-    // avatar : {
-    //     type: String,
-    //     required: true
-    // },
-    
     role:{
         type: String,
         default: "Student"
     },
-
+    active: {
+        type: Boolean,
+        default: false, // By default user will be inactive
+      },
+      codeHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Code' }],
+    
+    
 },
 
 {timestamps: true})

@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Navbar from "../LandingPage/Navbar";
+import Footer from "../LandingPage/Footer";
 const Checkout = () => {
   const state = useSelector((state) => state.cart);
 
@@ -39,7 +41,7 @@ const Checkout = () => {
         //   return (subtotal += item.product.price * item.qty);
         // })
         console.log(state[i]);
-        total_price += state[i].product.price*state[i].qty;
+        total_price += state[i].product.coursePrice*state[i].qty;
         total_item_qty +=state[i].qty
       }
         setTotal({'total_price':total_price,'total_qty':total_item_qty})
@@ -299,13 +301,13 @@ const Checkout = () => {
   };
   return (
     <>
-
+      <Navbar/>
       <div className="container my-3 py-3">
         <h1 className="text-center">Checkout</h1>
         <hr />
         {state.length ? <ShowCheckout /> : <EmptyCart />}
       </div>
-
+<Footer/>
     </>
   );
 };
