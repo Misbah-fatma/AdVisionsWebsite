@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import logo10 from "./logo10.png"
+import "../../App.css"
 export default function Navbar() {
 
   useEffect(() => {
@@ -59,7 +60,7 @@ const handleLogout = () => {
             </Link>
             <button
               type="button"
-              className="navbar-toggler ms-auto me-0 bg-black "
+              className="navbar-toggler ms-auto me-0 bg-aquablue "
               data-bs-toggle="collapse"
               data-bs-target="#navbarCollapse"
             >
@@ -110,7 +111,8 @@ const handleLogout = () => {
                     </Link>
             
               </div>
-              <div className="navbar-nav ml-auto py-0 d-none d-lg-block">
+              <div className=" nav-item 
+              navbar-nav ml-auto py-0 d-none d-lg-block">
                 {
                   userData ?
                     <div className="nav-item dropdown">

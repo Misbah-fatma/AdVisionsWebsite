@@ -90,86 +90,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
-      {/* <Container>
-        <Toast_Comp
-          setToast={setToast}
-          renderToast={toast}
-          msg="Registration Success Please Login"
-        />
-        <Row>
-          <Col md={6} className="mx-auto mt-4 ">
-            <Paper className="p-4 shadow rounded">
-              <Typography
-                className="text-center text-primary mb-3"
-                variant="h5"
-              >
-                Register Here
-              </Typography>
-              {loading && <Spinner_comp />}
-              {error && error.user && (
-                <Alert_Comp variant="danger" msg={error.user} />
-              )}
-
-              <Form onSubmit={formSubmitHandler}>
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Username</Form.Label>
-                  <Form.Control
-                    onChange={(e) => setUserName(e.target.value)}
-                    type="text"
-                    placeholder="Enter Your Username"
-                  />
-                  <span style={{ color: "red" }}>
-                    {error && error.userName}
-                  </span>
-                </Form.Group>
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control
-                    onChange={(e) => setEmail(e.target.value)}
-                    type="email"
-                    placeholder="Enter email"
-                  />
-                  <span style={{ color: "red" }}>{error && error.email}</span>
-                </Form.Group>
-                <Form.Group controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    onChange={(e) => setPassword(e.target.value)}
-                    type="password"
-                    placeholder="Password"
-                  />
-                  <span style={{ color: "red" }}>
-                    {error && error.password}
-                  </span>
-                </Form.Group>
-                <Form.Group controlId="formBasicPassword">
-                  <Form.Label>Confirm Password</Form.Label>
-                  <Form.Control
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    type="password"
-                    placeholder="Confirm Password"
-                  />
-                  <span style={{ color: "red" }}>
-                    {error && error.confirmPassword}
-                  </span>
-                </Form.Group>
-                <Typography style={{ color: "GrayText" }} variant="subtitle2">
-                  Already Have an account?
-                  <Link to="/login">Login Here</Link>
-                </Typography>
-                <Button
-                  className="mt-2"
-                  color="primary"
-                  variant="contained"
-                  type="submit"
-                >
-                  Submit
-                </Button>
-              </Form>
-            </Paper>
-          </Col>
-        </Row>
-      </Container> */}
+    
             <Toast_Comp
           setToast={setToast}
           renderToast={toast}
@@ -182,10 +103,10 @@ const Register = () => {
                         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
                             className="img-fluid" alt="*" />
                     </div>
-                    <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1 shadow">
                         <form onSubmit={formSubmitHandler}>
-                            <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                                <p className="lead fw-normal mb-0 me-3">Sign up with</p>
+                            <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start m-2">
+                                {/* <p className="lead fw-normal mb-0 me-3">Sign up with</p>
                                 <button type="button" className="btn btn-primary btn-floating mx-1">
                                     <i className="fab fa-facebook-f"></i>
                                 </button>
@@ -200,12 +121,12 @@ const Register = () => {
 
                                 <button type="button" className="btn btn-primary btn-floating mx-1">
                                     <i className="fab fa-linkedin-in"></i>
-                                </button>
+                                </button> */}
                             </div>
 
-                            <div className="divider d-flex align-items-center my-4">
+                            {/* <div className="divider d-flex align-items-center my-4">
                                 <p className="text-center fw-bold mx-3 mb-0">Or</p>
-                            </div>
+                            </div> */}
 
                             {/* <!-- Full Name input --> */}
                             <div className="form-outline mb-4">
@@ -258,10 +179,10 @@ const Register = () => {
                             <div className="text-center text-lg-start mt-4 pt-2">
                                 <button type="submit" className="btn btn-primary btn-lg"
                                     style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}>Signup</button>
-                                <p className="small fw-bold mt-2 pt-1 mb-0"><Link to="/signup"
-                                    className="text-info">Already User?Login to Your Account</Link></p>
+                                <p className="small fw-bold mt-2 pt-1 mb-0"><Link to="/login"
+                                    className="text-info">Already User? Login to Your Account</Link></p>
                             </div>
-
+<p></p>
                         </form>
                     </div>
                 </div>

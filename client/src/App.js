@@ -9,7 +9,7 @@ import {
   Navigate
 } from "react-router-dom";
 import DashBoard from "./pages/DashBoard/Dashboard.js";
-
+import EditMetadataPage from './pages/AdminDashBoard/MetaData/metaData.js';
 import CourseInfo from "./pages/CourseInfo/CourseInfo.js";
 import Login from "./pages/Login/Login.js";
 import Register from "./pages/Register/Register.js";
@@ -50,6 +50,7 @@ import TeacherCategory from "./pages/TeacherDashBoard/Course Management/Category
 import TeacherChapter from "./pages/TeacherDashBoard/Course Management/Chapter.js"
 import UpdatePassword from "./pages/AdminDashBoard/Enroll Management/UpdatePassword.js"
 import Yjs from './pages/Yjs/yjs.jsx';
+
 const AdminRoute = ({ children, isAdmin }) => {
   return isAdmin ? children : <Navigate to="/login" replace />;
 };
@@ -73,9 +74,7 @@ const Routing = () => {
         <Route exact path="/admin-dashboard" element={ <AdminRoute isAdmin={isAdmin}><Dashboard3 /></AdminRoute>} />
         <Route exact path="/student-dashboard" element={ <StudentRoute isAdmin={isAdmin}><StudentDashBoard /></StudentRoute>} />
 
-      {/* <Route exact path="/profile"  element={<Profile />}>
-      
-      </Route> */}
+
       <Route exact path="/studentdashboard"  element={<StudentDashBoard />}>
       
       </Route>
@@ -87,6 +86,9 @@ const Routing = () => {
       <Route exact path="/cart"  element={<AddtoCart />}>
         
           </Route>
+          <Route exact path="/metaData"  element={<EditMetadataPage />}>
+        
+        </Route>
 
           <Route exact path="/NoticeToggle"  element={<NoticeToggle />}>
    
@@ -139,7 +141,6 @@ const Routing = () => {
    <Route exact path="/CourseChapter"  element={<CourseChapter />} />
    <Route exact path="/CourseCategory"  element={<CourseCategory />} />
    <Route exact path="/codeEditor"  element={<MyCodeEditor />} />
-
    <Route exact path="/student"  element={<StudentInfo />} />
    <Route exact path="/studentDetails"  element={<StudentsDetails />} />
    <Route exact path="/TeacherDashCourse"  element={<TeacherCourse />} />
@@ -162,6 +163,7 @@ function App() {
 
   return (
     <div>
+       
       <Router>
         
         <Routing />

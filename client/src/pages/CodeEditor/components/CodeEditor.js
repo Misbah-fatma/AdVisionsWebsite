@@ -7,6 +7,7 @@ import Output from "./Output"; // Import the Output component
 import axios from "axios";
 import Sidebar from "../SideBar";
 import { Helmet } from "react-helmet";
+
 const CodeEditor = () => {
   const editorRef = useRef(null);
   const [code, setCode] = useState(CODE_SNIPPETS["javascript"]);
@@ -26,11 +27,12 @@ const CodeEditor = () => {
   // Get user ID from userData
   const userId = userData ? userData._id : null;
   const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL });
+
   // Function to fetch saved code from the database
   const fetchSavedCode = async (userId) => {
     try {
       const response = await axiosInstance.get(
-        `/api/code/${userId}`, // Assuming your endpoint is /api/code/:userId
+        `/api/code`, // Assuming your endpoint is /api/code/:userId
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("auth_token"),
@@ -92,40 +94,42 @@ const CodeEditor = () => {
   };
 
   return (
-    <>   <Helmet>
-    <title>Advisions LMS</title>
-    <meta name="description" content="Learning Management System" />
-    <meta name="keywords" content="Advisions, LMS" />
-  </Helmet>
-    <HStack spacing={4}>
-      <Box width="70%">
-        {/* Language selector */}
-        <LanguageSelector language={language} onSelect={onSelect} />
-        {/* Code editor */}
-        <Editor
-          options={{
-            minimap: {
-              enabled: false,
-            },
-          }}
-          height="75vh"
-          theme="vs-dark"
-          language={language}
-          defaultValue={CODE_SNIPPETS[language]}
-          onMount={onMount}
-          value={code}
-          onChange={(value) => setCode(value)}
-        />
-        {/* Save button */}
-        <Button onClick={onSave} colorScheme="blue" mt={4} mr={2}>
-          Save
-        </Button>
-      </Box>
-      {/* Output component */}
-      <Output editorRef={editorRef} language={language} output={output} setOutput={setOutput} />
-      {/* Sidebar */}
-      <Sidebar onFileClick={handleFileClick} />
-    </HStack>
+    <>
+      <Helmet>
+        <title>Advisions LMS</title>
+        <meta name="description" content="Learning Management System" />
+        <meta name="keywords" content="Advisions, LMS" />
+      </Helmet>
+      <HStack spacing={4}>
+        <Box width="70%">
+          {/* Language selector and Save button */}
+          <HStack spacing={4} mb={4}>
+            <LanguageSelector language={language} onSelect={onSelect} />
+            <Button mt={5} onClick={onSave} >
+              Save
+            </Button>
+          </HStack>
+          {/* Code editor */}
+          <Editor
+            options={{
+              minimap: {
+                enabled: false,
+              },
+            }}
+            height="75vh"
+            theme="vs-dark"
+            language={language}
+            defaultValue={CODE_SNIPPETS[language]}
+            onMount={onMount}
+            value={code}
+            onChange={(value) => setCode(value)}
+          />
+        </Box>
+        {/* Output component */}
+        <Output editorRef={editorRef} language={language} output={output} setOutput={setOutput} />
+        {/* Sidebar */}
+        <Sidebar onFileClick={handleFileClick} />
+      </HStack>
     </>
   );
 };

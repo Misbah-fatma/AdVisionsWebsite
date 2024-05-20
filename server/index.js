@@ -4,6 +4,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const { MONGO_URI, SECRET_KEY } = require("./config/keys");
+const shortid = require('shortid');
 require('dotenv').config();
 
 
@@ -20,6 +21,7 @@ app.use("/users", require("./routes/userRoute"));
 app.use("/enroll-course", require("./routes/enrollRoute"));
 app.use("/cart", require("./routes/cartRoutes"));
 app.use("/api", require("./routes/codeRoute"));
+app.use('/metadata', require("./routes/metadataRoute"));
 
 // Deploy
 if (process.env.NODE_ENV === 'production') {
@@ -46,15 +48,6 @@ mongoose
     console.log("Error occurred");
   });
 
-
   
-
-
-
-
-
-
-  
-
 
 

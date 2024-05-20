@@ -115,9 +115,16 @@ const Sidebar = () => {
           <div className="app-sidebar-inner">
          
       <div className="option" onClick={() => toggleOptions('option1')}>
-        <NavLink to="/studentDashboard" activeClassName="active-link vertical-nav-menu">
+        <NavLink to="/admin-dashboard" activeClassName="active-link vertical-nav-menu">
           <i className="fa-solid fa-home menu-icon"></i>
           Dashboard
+        </NavLink>
+       
+      </div>
+      <div className="option" onClick={() => toggleOptions('option1')}>
+        <NavLink to="/metaData" activeClassName="active-link vertical-nav-menu">
+          <i className="fa-solid fa-home menu-icon"></i>
+          Set Meta Data
         </NavLink>
        
       </div>

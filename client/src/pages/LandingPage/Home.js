@@ -26,6 +26,7 @@ const Home = () => {
     return (
         <>
         <Navbar/>
+     
         <div className="container-fluid pt-5 bg-primary hero-header position-relative" style={{ backgroundImage: `url(/assets/img/hero_1.jpg)`, backgroundSize: "cover", height: "100vh" }}>
   <div className="position-absolute top-0 start-0 w-100 h-100" style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}></div>
   <div className="container pt-5 position-relative">

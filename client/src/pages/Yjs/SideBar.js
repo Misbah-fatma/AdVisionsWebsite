@@ -42,14 +42,29 @@ const Sidebar = ({ onFileClick, onCodeSelect }) => {
           Saved Code
         </Text>
         <Box
-          height="85vh"
-          p={2}
-          color={isError ? "red.400" : ""}
-          border="1px solid"
-          borderRadius={4}
-          borderColor={isError ? "red.500" : "#333"}
-          overflowY="scroll"
-        >
+      height="80vh"
+      p={2}
+      color={isError ? "red.400" : ""}
+      border="1px solid"
+      borderRadius={4}
+      borderColor={isError ? "red.500" : "#333"}
+      overflowY="scroll"
+      sx={{
+        '&::-webkit-scrollbar': {
+          width: '8px',
+        },
+        '&::-webkit-scrollbar-track': {
+          background: '#f1f1f1',
+        },
+        '&::-webkit-scrollbar-thumb': {
+          background: '#888',
+          borderRadius: '4px',
+        },
+        '&::-webkit-scrollbar-thumb:hover': {
+          background: '#555',
+        },
+      }}
+    >
           {isLoading ? (
             <Text>Loading...</Text>
           ) : (

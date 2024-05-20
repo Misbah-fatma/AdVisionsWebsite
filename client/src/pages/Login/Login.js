@@ -95,15 +95,15 @@ const Login = () => {
         />
       <section >
                 <div className="container-fluid h-custom py-5">
-                    <div className="row d-flex justify-content-center align-items-center h-100">
+                    <div className="row d-flex justify-content-center align-items-center h-100 ">
                         <div className="col-md-9 col-lg-6 col-xl-5">
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
                                 className="img-fluid" alt="*" />
                         </div>
-                        <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                        <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1 shadow">
                             <form onSubmit={formSubmitHandler}>
-                                <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                                    <p className="lead fw-normal mb-0 me-3">Sign in with</p>
+                                <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start ">
+                                    {/* <p className="lead fw-normal mb-0 me-3">Sign in with</p>
                                     <button type="button" className="btn btn-primary btn-floating mx-1">
                                         <i className="fab fa-facebook-f"></i>
                                     </button>
@@ -118,12 +118,12 @@ const Login = () => {
 
                                     <button type="button" className="btn btn-primary btn-floating mx-1">
                                         <i className="fab fa-linkedin-in"></i>
-                                    </button>
+                                    </button> */}
                                 </div>
 
-                                <div className="divider d-flex align-items-center my-4">
+                                {/* <div className="divider d-flex align-items-center my-4">
                                     <p className="text-center fw-bold mx-3 mb-0">Or</p>
-                                </div>
+                                </div> */}
 
                                 {/* <!-- Email input --> */}
                                 <div className="form-outline mb-4">
@@ -162,7 +162,7 @@ const Login = () => {
                                     <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <Link to="/register"
                                         className="link-danger">Register</Link></p>
                                 </div>
-
+<p></p>
                             </form>
                         </div>
                     </div>
