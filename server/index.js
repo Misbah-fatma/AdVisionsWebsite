@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const { MONGO_URI, SECRET_KEY } = require("./config/keys");
 const shortid = require('shortid');
 require('dotenv').config();
-
+const blocklyController = require('./controllers/BlocklyController');
 
 // Middleware
 app.use("/uploads", express.static("uploads"));
@@ -22,14 +22,36 @@ app.use("/enroll-course", require("./routes/enrollRoute"));
 app.use("/cart", require("./routes/cartRoutes"));
 app.use("/api", require("./routes/codeRoute"));
 app.use('/metadata', require("./routes/metadataRoute"));
+app.post('/api/saveCode', blocklyController.saveCode);
+app.get('/api/getUserFiles/:userId', blocklyController.getUserFiles);
+
+app.post('/api/run', async (req, res) => {
+  const { userId, code, language } = req.body;
+  const output = await monacoEdit(language, code);
+  const codeRecord = new Blockly({ userId, generatedCode: code, output }); // Changed to Blockly model
+  await codeRecord.save();
+  res.send({ output });
+});
+
+const monacoEdit = async (language, code) => {
+  try {
+    // eslint-disable-next-line no-eval
+    const result = eval(code);
+    return result.toString();
+  } catch (error) {
+    return error.toString();
+  }
+};
+
+
 
 // Deploy
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'))
-  const path = require('path')
+  app.use(express.static('client/build'));
+  const path = require('path');
   app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-  })
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
 }
 
 // Database and server setup
@@ -47,7 +69,3 @@ mongoose
     console.error(err);
     console.log("Error occurred");
   });
-
-  
-
-

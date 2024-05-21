@@ -7,7 +7,6 @@ const Sidebar = ({ onFileClick, onCodeSelect }) => {
   const [codes, setCodes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
   const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL });
 
   useEffect(() => {
@@ -21,7 +20,6 @@ const Sidebar = ({ onFileClick, onCodeSelect }) => {
       } catch (error) {
         console.error("Error fetching codes:", error);
         setIsError(true);
-        setErrorMessage(error.response?.data || "An unexpected error occurred");
       }
       setIsLoading(false);
     };
@@ -65,7 +63,7 @@ const Sidebar = ({ onFileClick, onCodeSelect }) => {
               ))}
             </ul>
           )}
-          {isError && <Text color="red.500">{errorMessage}</Text>}
+          {isError && <Text color="red.500">Error fetching codes</Text>}
         </Box>
       </Box>
     </>

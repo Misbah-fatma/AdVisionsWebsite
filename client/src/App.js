@@ -22,7 +22,7 @@ import AddtoCart from "./pages/AddToCart/AddtoCart.js"
 import NoticeToggle from "./pages/CourseInfo/NoticeToggle/NoticeToggle.js";
 import CheckOut from "./pages/AddToCart/Checkout.js"
 import CourseInfo1 from "./pages/LandingPage/CourseInfo.js";
-
+import Blockly from "./pages/Blocky/Blocky.jsx"
 import Dashboard3 from "./pages/AdminDashBoard/Dashboard.js"
 import CourseDashboardInfo from "./pages/AdminDashBoard/Course Management/CourseInfo.js";
 import Category from "./pages/AdminDashBoard/Course Management/Category.js";
@@ -60,7 +60,7 @@ const StudentRoute = ({ children, isAdmin }) => {
 const TeacherRoute = ({ children, isAdmin }) => {
   return isAdmin ? children : <Navigate to="/login" replace />;
 };
-
+const userId = 'user123';
 const Routing = () => {
   const isAdmin = true; 
   return (
@@ -86,7 +86,11 @@ const Routing = () => {
       <Route exact path="/cart"  element={<AddtoCart />}>
         
           </Route>
-          <Route exact path="/metaData"  element={<EditMetadataPage />}>
+
+          <Route exact path="/cart"  element={<AddtoCart />}>
+        
+        </Route>
+          <Route exact path="/blockly"  element={<Blockly userId={userId}/>}>
         
         </Route>
 

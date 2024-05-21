@@ -109,6 +109,9 @@ const handleLogout = () => {
                 <Link to="/yjseditor" className="nav-item nav-link active">
                     YJS Editor
                     </Link>
+                    <Link to="/blockly" className="nav-item nav-link active">
+                   Blockly
+                    </Link>
             
               </div>
               <div className=" nav-item 
